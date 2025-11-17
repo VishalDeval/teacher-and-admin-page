@@ -2217,7 +2217,8 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                       </div>
                     ))}
 
-                    {/* Overall Summary Card */}
+                    {/* Overall Summary Card - Only show if there are exam results */}
+                    {studentResults.examResults.length > 0 && (
                     <div style={{
                       border: '2px solid #3b82f6',
                       borderRadius: '12px',
@@ -2259,6 +2260,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                         </div>
                       </div>
                     </div>
+                    )}
                   </div>
                 ) : (
                   <div style={{

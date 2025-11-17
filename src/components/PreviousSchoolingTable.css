@@ -1,14 +1,21 @@
-/* Previous Schooling Container */
-.previous-schooling-container {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 1.5rem;
+/* ============================================
+   PREVIOUS SCHOOLING TABLE - SCOPED STYLES
+   Using IDs and specific selectors to avoid conflicts
+   ============================================ */
+
+/* Main Container */
+#previous-schooling-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin: 2rem auto;
+  max-width: 100%;
+  border: 1px solid #e5e7eb;
 }
 
 /* Header Section */
-.previous-schooling-header {
+#previous-schooling-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,418 +24,637 @@
   border-bottom: 3px solid #667eea;
 }
 
-.header-info h2 {
+#previous-schooling-header .header-info h2 {
   margin: 0 0 0.5rem 0;
   color: #1f2937;
-  font-size: 1.75rem;
+  font-size: 1.875rem;
   font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
-.header-info p {
+#previous-schooling-header .header-info p {
   margin: 0.25rem 0;
   color: #6b7280;
   font-size: 0.95rem;
+  font-weight: 400;
 }
 
 /* Table Wrapper */
-.previous-schooling-table-wrapper {
+#previous-schooling-table-wrapper {
   overflow-x: auto;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: visible; /* Allow dropdowns to extend outside */
 }
 
-/* Previous Schooling Table */
-.previous-schooling-table {
+/* Main Table */
+#previous-schooling-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: 0.9rem;
-  background: white;
+  background: #ffffff;
   border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius: 12px;
+  overflow: visible;
+  position: relative;
 }
 
-.previous-schooling-table thead tr:first-child th {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 1rem 0.75rem;
-  text-align: center;
-  font-weight: 700;
-  font-size: 1rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.previous-schooling-table thead tr:first-child th:last-child {
-  border-right: none;
-}
-
-.session-header {
+/* Specific Header Columns */
+#previous-schooling-table .session-header {
   text-align: left !important;
   min-width: 150px;
   position: sticky;
   left: 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  z-index: 2;
+  z-index: 3;
 }
 
-.class-header {
+#previous-schooling-table .class-header {
   min-width: 100px;
 }
 
-.status-header {
+#previous-schooling-table .status-header {
   min-width: 120px;
 }
 
-.passing-year-header {
+#previous-schooling-table .passing-year-header {
   min-width: 100px;
 }
 
-.attendance-header {
+#previous-schooling-table .attendance-header {
   min-width: 200px;
   background: rgba(255, 255, 255, 0.1) !important;
 }
 
-.performance-header {
+#previous-schooling-table .performance-header {
   min-width: 150px;
   background: rgba(255, 255, 255, 0.15) !important;
 }
 
-.exams-header {
+#previous-schooling-table .exams-header {
   min-width: 180px;
   background: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Subheader Row */
-.subheader-row th {
-  background: #f3f4f6 !important;
+#previous-schooling-table .subheader-row th {
+  background: #f9fafb !important;
   color: #4b5563;
-  padding: 0.5rem 0.5rem;
+  padding: 0.6rem 0.5rem;
   font-size: 0.85rem;
   font-weight: 600;
   text-align: center;
   border-right: 1px solid #e5e7eb;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.marks-subheader {
+#previous-schooling-table .marks-subheader {
   color: #6b7280;
   font-size: 0.8rem;
+  font-weight: 600;
 }
 
-/* Table Body */
-.previous-schooling-table tbody tr {
+/* Table Body Rows */
+#previous-schooling-table tbody tr {
   border-bottom: 1px solid #e5e7eb;
-  transition: background-color 0.2s;
+  transition: background-color 0.25s ease, transform 0.15s ease;
 }
 
-.previous-schooling-table tbody tr:hover {
+#previous-schooling-table tbody tr:hover {
   background-color: #f9fafb;
+  transform: scale(1.001);
 }
 
-.record-row td {
-  padding: 0.75rem;
+#previous-schooling-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+#previous-schooling-table .record-row td {
+  padding: 0.9rem 0.75rem;
   text-align: center;
   border-right: 1px solid #e5e7eb;
   vertical-align: middle;
+  color: #374151;
+  font-size: 0.9rem;
 }
 
-.session-name {
+#previous-schooling-table .record-row td:last-child {
+  border-right: none;
+}
+
+/* Session Name Column */
+#previous-schooling-table .session-name {
   text-align: left !important;
-  font-weight: 600;
+  font-weight: 700;
   color: #1f2937;
   position: sticky;
   left: 0;
-  background: white;
-  z-index: 1;
+  background: #ffffff;
+  z-index: 2;
   border-right: 2px solid #d1d5db !important;
+  font-size: 0.95rem;
 }
 
-.previous-schooling-table tbody tr:hover .session-name {
+#previous-schooling-table tbody tr:hover .session-name {
   background-color: #f9fafb;
 }
 
 /* Class Badge */
-.class-badge {
+#previous-schooling-table .class-badge {
   display: inline-block;
-  padding: 0.35rem 0.75rem;
+  padding: 0.4rem 0.85rem;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
   background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+  letter-spacing: 0.3px;
 }
 
-/* Status Badge */
-.status-badge {
+/* Status Badges */
+#previous-schooling-table .status-badge {
   display: inline-block;
-  padding: 0.35rem 0.75rem;
+  padding: 0.4rem 0.85rem;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.status-completed {
+#previous-schooling-table .status-completed {
   background-color: #d1fae5;
   color: #065f46;
+  border: 1px solid #6ee7b7;
 }
 
-.status-transferred {
+#previous-schooling-table .status-transferred {
   background-color: #fef3c7;
   color: #92400e;
+  border: 1px solid #fcd34d;
 }
 
-.status-promoted {
+#previous-schooling-table .status-promoted {
   background-color: #dbeafe;
   color: #1e40af;
+  border: 1px solid #93c5fd;
 }
 
 /* Passing Year */
-.passing-year {
-  font-weight: 600;
+#previous-schooling-table .passing-year {
+  font-weight: 700;
   color: #374151;
+  font-size: 0.95rem;
 }
 
 /* Attendance Cells */
-.attendance-cell {
+#previous-schooling-table .attendance-cell {
   color: #059669;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
-.attendance-cell.absent {
+#previous-schooling-table .attendance-cell.absent {
   color: #dc2626;
 }
 
-.attendance-percentage {
+#previous-schooling-table .attendance-percentage {
   background-color: #f0fdf4;
-  font-weight: 700;
+  font-weight: 800;
   color: #15803d;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  border-left: 3px solid #86efac;
 }
 
 /* Performance Cells */
-.performance-percentage {
+#previous-schooling-table .performance-percentage {
   background-color: #eff6ff;
-  font-weight: 700;
+  font-weight: 800;
   color: #1d4ed8;
-  font-size: 0.95rem;
-}
-
-/* Grade Badge */
-.grade-badge {
-  display: inline-block;
-  padding: 0.35rem 0.65rem;
-  border-radius: 8px;
-  font-weight: 700;
   font-size: 1rem;
+  border-left: 3px solid #93c5fd;
 }
 
-.grade-aplus,
-.grade-a {
+/* Grade Badges */
+#previous-schooling-table .grade-badge {
+  display: inline-block;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#previous-schooling-table .grade-aplus,
+#previous-schooling-table .grade-a {
   background-color: #d1fae5;
   color: #065f46;
+  border: 2px solid #6ee7b7;
 }
 
-.grade-bplus,
-.grade-b {
+#previous-schooling-table .grade-bplus,
+#previous-schooling-table .grade-b {
   background-color: #dbeafe;
   color: #1e40af;
+  border: 2px solid #93c5fd;
 }
 
-.grade-c {
+#previous-schooling-table .grade-c {
   background-color: #fef3c7;
   color: #92400e;
+  border: 2px solid #fcd34d;
 }
 
-.grade-d,
-.grade-e,
-.grade-f {
+#previous-schooling-table .grade-d,
+#previous-schooling-table .grade-e,
+#previous-schooling-table .grade-f {
   background-color: #fee2e2;
   color: #991b1b;
+  border: 2px solid #fca5a5;
 }
 
-/* Exam Details */
-.exam-details-cell {
-  padding: 0.5rem !important;
+/* Exam Details Cell */
+#previous-schooling-table .exam-details-cell {
+  padding: 0.6rem !important;
+  position: relative;
 }
 
-.exam-details {
+#previous-schooling-table .exam-details {
   text-align: left;
+  position: relative;
 }
 
-.exam-summary {
+#previous-schooling-table .exam-summary {
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 6px;
+  padding: 0.6rem 2.5rem 0.6rem 1rem;
+  border-radius: 8px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  font-weight: 600;
-  font-size: 0.85rem;
-  transition: all 0.2s;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  transition: all 0.25s ease;
   list-style: none;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  border: none;
+  outline: none;
+  display: block;
+  width: 100%;
+  position: relative;
 }
 
-.exam-summary::-webkit-details-marker {
+#previous-schooling-table .exam-summary::-webkit-details-marker {
   display: none;
 }
 
-.exam-summary:hover {
-  transform: scale(1.02);
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+#previous-schooling-table .exam-summary::marker {
+  display: none;
 }
 
-.exam-list {
-  margin-top: 0.75rem;
+/* Add arrow indicator */
+#previous-schooling-table .exam-summary::after {
+  content: '▼';
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+  font-size: 0.7rem;
+}
+
+#previous-schooling-table details[open] .exam-summary::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+#previous-schooling-table .exam-summary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #5568d3 0%, #6a4491 100%);
+}
+
+/* Popup/Dropdown style for exam list */
+#previous-schooling-table .exam-list {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 10000;
+  width: 380px;
+  max-width: 90vw;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  background-color: #f9fafb;
-  border-radius: 6px;
-  border: 1px solid #e5e7eb;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 2px solid #667eea;
+  box-shadow: 0 12px 48px rgba(102, 126, 234, 0.25), 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
-.exam-item {
-  padding: 0.75rem;
-  background: white;
-  border-radius: 6px;
+/* Add arrow pointer to the dropdown */
+#previous-schooling-table .exam-list::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 1.5rem;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #667eea;
+}
+
+/* Ensure exam list appears above other content */
+#previous-schooling-table details[open] {
+  position: static;
+}
+
+#previous-schooling-table tbody tr {
+  position: relative;
+}
+
+#previous-schooling-table details[open] .exam-list {
+  display: flex;
+  animation: slideDown 0.3s ease-out;
+}
+
+#previous-schooling-table details:not([open]) .exam-list {
+  display: none;
+}
+
+#previous-schooling-table .exam-item {
+  padding: 0.85rem;
+  background: #f9fafb;
+  border-radius: 8px;
   border: 1px solid #e5e7eb;
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 0.5rem;
+  gap: 0.6rem;
   align-items: center;
+  transition: all 0.2s ease;
 }
 
-.exam-name {
-  font-weight: 600;
+#previous-schooling-table .exam-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+  transform: translateX(3px);
+  background: #ffffff;
+}
+
+#previous-schooling-table .exam-name {
+  font-weight: 700;
   color: #1f2937;
-  font-size: 0.9rem;
+  font-size: 0.925rem;
 }
 
-.exam-marks {
-  font-size: 0.85rem;
+#previous-schooling-table .exam-marks {
+  font-size: 0.875rem;
   color: #6b7280;
   grid-column: 1;
+  font-weight: 600;
 }
 
-.exam-performance {
+#previous-schooling-table .exam-performance {
   grid-column: 2;
   grid-row: 1 / 3;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.25rem;
+  gap: 0.35rem;
 }
 
-.exam-percentage {
-  font-weight: 700;
+#previous-schooling-table .exam-percentage {
+  font-weight: 800;
   color: #3b82f6;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
-.exam-grade {
-  padding: 0.2rem 0.5rem;
+#previous-schooling-table .exam-grade {
+  padding: 0.25rem 0.6rem;
   border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.75rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.3px;
 }
 
-.no-exams {
+#previous-schooling-table .no-exams {
   color: #9ca3af;
   font-style: italic;
+  font-size: 0.9rem;
 }
 
 /* Summary Footer */
-.records-summary {
+#previous-schooling-summary {
   display: flex;
   justify-content: space-around;
-  margin-top: 2rem;
-  padding: 1.5rem;
+  align-items: stretch;
+  margin-top: 2.5rem;
+  padding: 2rem;
   background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
   border-radius: 12px;
   border: 2px solid #d1d5db;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.summary-item {
+#previous-schooling-summary .summary-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  padding: 1rem;
+  flex: 1;
+  border-right: 2px solid #d1d5db;
 }
 
-.summary-label {
-  font-size: 0.9rem;
+#previous-schooling-summary .summary-item:last-child {
+  border-right: none;
+}
+
+#previous-schooling-summary .summary-label {
+  font-size: 0.95rem;
   color: #6b7280;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.summary-value {
-  font-size: 1.5rem;
-  font-weight: 800;
+#previous-schooling-summary .summary-value {
+  font-size: 2rem;
+  font-weight: 900;
   color: #1f2937;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  #previous-schooling-container {
+    padding: 2rem;
+  }
+
+  #previous-schooling-table {
+    font-size: 0.85rem;
+  }
+
+  #previous-schooling-table .record-row td {
+    padding: 0.7rem 0.6rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .previous-schooling-header {
+  #previous-schooling-container {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  #previous-schooling-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
 
-  .previous-schooling-table {
+  #previous-schooling-header .header-info h2 {
+    font-size: 1.5rem;
+  }
+
+  #previous-schooling-table {
     font-size: 0.8rem;
   }
 
-  .previous-schooling-table thead tr:first-child th {
-    padding: 0.75rem 0.5rem;
-    font-size: 0.85rem;
+  #previous-schooling-table .record-row td {
+    padding: 0.6rem 0.5rem;
   }
 
-  .record-row td {
-    padding: 0.5rem;
-  }
-
-  .session-name {
+  #previous-schooling-table .session-name {
     min-width: 120px;
     font-size: 0.85rem;
   }
 
-  .records-summary {
+  #previous-schooling-summary {
     flex-direction: column;
     gap: 1rem;
+    padding: 1.5rem;
   }
 
-  .summary-item {
+  #previous-schooling-summary .summary-item {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #d1d5db;
+    padding: 0.75rem 0;
+  }
+
+  #previous-schooling-summary .summary-item:last-child {
+    border-bottom: none;
+  }
+
+  #previous-schooling-summary .summary-value {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #previous-schooling-container {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  #previous-schooling-header .header-info h2 {
+    font-size: 1.25rem;
+  }
+
+  #previous-schooling-header .header-info p {
+    font-size: 0.85rem;
+  }
+
+  #previous-schooling-table {
+    font-size: 0.75rem;
+  }
+
+  #previous-schooling-summary .summary-label {
+    font-size: 0.85rem;
+  }
+
+  #previous-schooling-summary .summary-value {
+    font-size: 1.25rem;
   }
 }
 
 /* Print Styles */
 @media print {
-  .previous-schooling-container {
+  #previous-schooling-container {
     box-shadow: none;
-  }
-
-  .previous-schooling-table {
     border: 1px solid #000;
   }
 
-  .previous-schooling-table thead tr:first-child th {
-    background: #333 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  #previous-schooling-table {
+    border: 2px solid #000;
   }
 
-  .session-name {
-    background: white !important;
+  #previous-schooling-table .session-name {
+    background: #ffffff !important;
   }
 
-  .exam-summary {
+  #previous-schooling-table tbody tr:hover {
+    background-color: transparent !important;
+  }
+
+  #previous-schooling-table .exam-summary {
     display: none;
   }
 
-  .exam-list {
+  #previous-schooling-table .exam-list {
     display: flex !important;
+    border: 1px solid #000;
+  }
+
+  #previous-schooling-summary {
+    background: #f3f4f6 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Scrollbar Styling for Exam List */
+#previous-schooling-table .exam-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+#previous-schooling-table .exam-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+#previous-schooling-table .exam-list::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 4px;
+}
+
+#previous-schooling-table .exam-list::-webkit-scrollbar-thumb:hover {
+  background: #5568d3;
+}
+
+/* Animation for Details Opening */
+#previous-schooling-table details[open] .exam-list {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

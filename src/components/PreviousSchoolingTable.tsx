@@ -8,9 +8,9 @@ interface PreviousSchoolingTableProps {
 
 const PreviousSchoolingTable: React.FC<PreviousSchoolingTableProps> = ({ records }) => {
   return (
-    <div className="previous-schooling-container">
+    <div id="previous-schooling-container" className="previous-schooling-container">
       {/* Header Section */}
-      <div className="previous-schooling-header">
+      <div id="previous-schooling-header" className="previous-schooling-header">
         <div className="header-info">
           <h2>📚 Academic History</h2>
           <p>Complete record of all previous sessions</p>
@@ -18,27 +18,18 @@ const PreviousSchoolingTable: React.FC<PreviousSchoolingTableProps> = ({ records
       </div>
 
       {/* Previous Schooling Table */}
-      <div className="previous-schooling-table-wrapper">
-        <table className="previous-schooling-table">
+      <div id="previous-schooling-table-wrapper" className="previous-schooling-table-wrapper">
+        <table id="previous-schooling-table" className="previous-schooling-table">
           <thead>
-            <tr>
-              <th className="session-header">Session</th>
-              <th className="class-header">Class</th>
-              <th className="status-header">Status</th>
-              <th className="passing-year-header">Passing Year</th>
-              <th className="attendance-header" colSpan={3}>Attendance</th>
-              <th className="performance-header" colSpan={2}>Overall Performance</th>
-              <th className="exams-header">Exam Results</th>
-            </tr>
             <tr className="subheader-row">
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
+              <th className="marks-subheader">Session</th>
+              <th className="marks-subheader">Class</th>
+              <th className="marks-subheader">Status</th>
+              {/* <th className="marks-subheader">Passing Year</th> */}
               <th className="marks-subheader">Present</th>
               <th className="marks-subheader">Absent</th>
-              <th className="marks-subheader">%</th>
-              <th className="marks-subheader">%</th>
+              <th className="marks-subheader">Attendance %</th>
+              <th className="marks-subheader">Overall %</th>
               <th className="marks-subheader">Grade</th>
               <th className="marks-subheader">Details</th>
             </tr>
@@ -57,7 +48,7 @@ const PreviousSchoolingTable: React.FC<PreviousSchoolingTableProps> = ({ records
                     {record.status}
                   </span>
                 </td>
-                <td className="passing-year">{record.passingYear}</td>
+                {/* <td className="passing-year">{record.passingYear}</td> */}
                 <td className="attendance-cell">{record.totalPresent}</td>
                 <td className="attendance-cell absent">{record.totalAbsent}</td>
                 <td className="attendance-percentage">
@@ -105,7 +96,7 @@ const PreviousSchoolingTable: React.FC<PreviousSchoolingTableProps> = ({ records
       </div>
 
       {/* Summary Footer */}
-      <div className="records-summary">
+      <div id="previous-schooling-summary" className="records-summary">
         <div className="summary-item">
           <span className="summary-label">Total Sessions:</span>
           <span className="summary-value">{records.length}</span>

@@ -17,6 +17,7 @@ import ExamManagement from './ExamManagement';
 import GalleryManagement from './GalleryManagement';
 import MessagesManagement from './MessagesManagement';
 import PromotionManagement from './PromotionManagement';
+import GradeManagement from './GradeManagement';
 import { FeeService } from '../../services/feeService';
 import AdminService, { StudentResponse, TeacherResponse, NonTeachingStaffResponse, ClassInfoResponse } from '../../services/adminService';
 import StudentService from '../../services/studentService';
@@ -1886,6 +1887,8 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
         return <GalleryManagement />;
       case 'holidays':
         return <HolidayManagement />;
+      case 'grade-management':
+        return <GradeManagement />;
       default:
         return renderOverview();
     }
@@ -2020,6 +2023,12 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
               onClick={() => setActiveTab('holidays')}
             >
               📅 Holidays
+            </button>
+            <button
+              className={`nav-item ${activeTab === 'grade-management' ? 'active' : ''}`}
+              onClick={() => setActiveTab('grade-management')}
+            >
+              🎯 Grade Management
             </button>
           </nav>
         </aside>
