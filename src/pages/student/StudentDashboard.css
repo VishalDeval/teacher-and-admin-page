@@ -1,13 +1,38 @@
 .dashboard-container {
   display: flex;
   flex-direction: column;
+  justify-content:baseline;
   min-height: 100vh;
   background-color: #f5f7fa;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
   overflow-x: hidden;
+  overflow-y: auto;
+}
+@media screen and (max-width: 768px) {
+  .header-left { 
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-right {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center!important;
+}
+.menu-toggle{
+  display: none !important;
 }
 
+}
+.ln-card{
+  gap:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+}
 .dashboard-header {
   background: linear-gradient(135deg, #3f5efb 0%, #6e54ec 100%);
   color: white;
@@ -30,10 +55,17 @@
 .header-left {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 .menu-toggle {
+  display: none;
   background: rgba(255, 255, 255, 0.15);
   border: none;
   color: white;
@@ -42,7 +74,7 @@
   margin-right: 15px;
   width: 40px;
   height: 40px;
-  display: flex;
+ 
   align-items: center;
   justify-content: center;
   border-radius: 50%;
@@ -59,13 +91,9 @@
 
 .menu-icon {
   font-size: 24px;
+  
 }
 
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
 
 .notification-wrapper {
   position: relative;
@@ -136,8 +164,8 @@
 
 .notifications-dropdown {
   position: absolute;
-  top: 45px;
-  right: 0;
+  top: 47px;
+  left: 40px;
   width: 320px;
   background-color: white;
   border-radius: 15px;
@@ -262,9 +290,10 @@
 }
 
 .calendar-table {
-  width: 100%;
+  width: 80%;
   border-collapse: separate;
   border-spacing: 8px;
+  justify-self: center;
 }
 
 .calendar-table thead th {
@@ -281,7 +310,7 @@
   text-align: center;
   border-radius: 10px;
   padding: 12px 0;
-  min-width: 44px;
+  min-width: 20px;
 }
 
 .calendar-table tbody td.present { background-color: #e6f9ed; border: 1px solid #b9e8c7; }
@@ -347,8 +376,9 @@
 
 .school-info {
   display: flex;
+  padding: 10px;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .school-logo {
@@ -425,7 +455,7 @@
 }
 
 .student-info {
-  color: white;
+  color:white;
 }
 
 .student-info h2 {
@@ -437,8 +467,9 @@
 
 .student-info p {
   font-size: 12px;
+  color:rgb(255, 255, 255) !important;
   margin: 0;
-  opacity: 0.9;
+  opacity: .9;
 }
 
 .logout-button {
@@ -471,12 +502,11 @@
 .tab-navigation {
   display: flex;
   overflow-x: auto;
+  overflow-y:hidden;
   background-color: #ffffff;
   padding: 8px 20px;
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
   z-index: 90;
 }
 
@@ -561,9 +591,6 @@
   width: 280px;
   height: calc(100vh - 80px);
   background-color: #ffffff;
-  position: sticky;
-  left: 0;
-  top: 80px;
   box-shadow: 5px 0 15px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 1000;
@@ -641,11 +668,14 @@
 }
 
 .main-content {
-  flex: 1;
+  display: flex!important;
+  justify-content: center!important;
+  align-items:start!important;
   padding: 0 20px 20px 20px;
   background-color: #f0f2f5;
-  margin: 0 auto;
-  width: 100%;
+  margin: 10px;
+  width: 90%;
+  height:100%!important;
   max-width: 1200px;
 }
 
@@ -682,34 +712,51 @@
 
 .profile-section {
   border-top-color: #3f5efb;
+  width: 95%;
+  
 }
 
 .attendance-section {
+  width: 100%!important;
   border-top-color: #4e95ff;
 }
 
 .fees-section {
   border-top-color: #27ae60;
+  width: 90%;
 }
 
 .holidays-section {
   border-top-color: #f39c12;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .events-section {
   border-top-color: #9b59b6;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .results-section {
   border-top-color: #e74c3c;
+  width: 100%;
 }
 
 .gallery-section {
   border-top-color: #3498db;
+  width: 100%;
 }
 
 .query-section {
   border-top-color: #4e95ff;
+  width: 100%;
 }
 
 .transfer-section {
@@ -754,7 +801,7 @@
 
 .profile-info {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .profile-photo {
@@ -845,6 +892,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+  width: 100%;
 }
 
 .event-card {
@@ -872,6 +920,7 @@
 
 .event-card.meeting {
   border-left: 4px solid #9c27b0;
+  
 }
 
 .event-card:hover {
@@ -938,10 +987,10 @@
 }
 
 .results-table {
-  width: 100%;
+  
   border-collapse: collapse;
   border-radius: 8px;
-  overflow: hidden;
+  overflow:scroll;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -949,6 +998,7 @@
 .results-table td {
   padding: 12px 15px;
   text-align: left;
+  min-width: 20px;
   border-bottom: 1px solid #e0e0e0;
 }
 
@@ -1139,13 +1189,14 @@
   
   .events-container {
     grid-template-columns: 1fr;
+    
   }
 }
 
 @media (max-width: 768px) {
   .tab-navigation {
     display: flex;
-    overflow-x: auto;
+    overflow-x: scroll;
     padding: 5px;
   }
   

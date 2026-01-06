@@ -684,7 +684,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
               
               return (
                 <div key={cls.className} className="class-tab">
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                  <div style={{flexWrap:'wrap', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
                     <div>
                       <h4 style={{ margin: 0 }}>{formattedClassName}</h4>
                       {classEntity?.classTeacherName && (
@@ -716,7 +716,8 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                           padding: '0.5rem 1rem',
                           fontSize: '0.875rem',
                           background: '#6366f1',
-                          color: 'white'
+                          color: 'white',
+                          whiteSpace:'wrap'
                         }}
                         title="Assign roll numbers alphabetically by student name"
                       >

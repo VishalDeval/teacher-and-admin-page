@@ -1,5 +1,7 @@
 .teacher-dashboard {
   min-height: 100vh;
+  width: 100%;
+  overflow: auto;
   background: #f8fafc;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -373,18 +375,20 @@
 /* Content Layout */
 .teacher-content {
   display: flex;
+ align-items: start;
+  width: 100%;
   min-height: calc(100vh - 80px);
 }
 
 /* Sidebar Styles */
 .teacher-sidebar {
-  width: 280px;
+  z-index: 99;
+  min-width: 20%;
   background: white;
   border-right: 1px solid #e2e8f0;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 80px;
-  height: calc(100vh - 80px);
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -445,9 +449,13 @@
 
 /* Main Content */
 .teacher-main {
-  flex: 1;
+  width: 100%;
+  overflow: hidden;
   padding: 2rem;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center ;
 }
 
 .main-header {
@@ -464,6 +472,10 @@
 .main-content {
   background: white;
   border-radius: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
@@ -471,6 +483,9 @@
 /* Home Section */
 .home-section {
   display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 2rem;
 }
@@ -478,9 +493,14 @@
 .teacher-profile {
   background: white;
   border-radius: 16px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #e2e8f0;
+  width: 100%;
 }
 
 .profile-header {
@@ -998,6 +1018,9 @@
   margin: 0 0 1.5rem 0;
   color: #1e293b;
 }
+.student-info-section{
+  overflow-x: scroll;
+}
 
 .class-selector {
   margin-bottom: 1.5rem;
@@ -1148,6 +1171,7 @@
 @media (max-width: 768px) {
   .teacher-content {
     flex-direction: column;
+    align-items: center;
   }
   
   .teacher-sidebar {
@@ -1161,7 +1185,10 @@
     overflow-x: auto;
     padding: 1rem;
   }
-  
+  .teacher-main {
+    
+    flex-direction: column;
+  }
   .nav-item {
     white-space: nowrap;
     min-width: fit-content;
@@ -1180,6 +1207,7 @@
   
   .teacher-main {
     padding: 1rem;
+    flex-direction: column;
   }
   
   .main-content {

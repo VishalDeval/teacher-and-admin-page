@@ -840,16 +840,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
           </div>
           <div className="header-right">
             <div className="notification-wrapper">
-              <button
-                className={`notification-button ${showNotifications ? 'open' : ''}`}
-                onClick={() => setShowNotifications(!showNotifications)}
-                aria-label="Notifications"
-              >
-                <span className="notification-icon">🔔</span>
-                {unreadCount > 0 && (
-                  <span className="notification-badge">{unreadCount}</span>
-                )}
-              </button>
+              
               {showNotifications && (
                 <div className="notifications-dropdown">
                   <div className="notifications-header">
@@ -961,7 +952,19 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                 <p>Class: {student?.currentClass || 'N/A'} • PAN: {student?.pan || 'N/A'}</p>
               </div>
             </div>
+            <div className='ln-card'>
             <button className="logout-button" onClick={onLogout}>⎋ Logout</button>
+            <button
+                className={`notification-button ${showNotifications ? 'open' : ''}`}
+                onClick={() => setShowNotifications(!showNotifications)}
+                aria-label="Notifications"
+              >
+                <span className="notification-icon">🔔</span>
+                {unreadCount > 0 && (
+                  <span className="notification-badge">{unreadCount}</span>
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -1028,7 +1031,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
           <span className="tab-label">Previous Schooling</span>
         </button>
       </nav>
-
+{/* 
       <div className={`dashboard-sidebar ${showSidebar ? 'open' : ''}`}>
         <div className="sidebar-header">
           <h3>Menu</h3>
@@ -1082,9 +1085,11 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
           </li>
         </ul>
       </div>
-      <div className={`sidebar-overlay ${showSidebar ? 'show' : ''}`} onClick={() => setShowSidebar(false)} />
+      <div className={`sidebar-overlay ${showSidebar ? 'show' : ''}`} onClick={() => setShowSidebar(false)} /> */}
+      <div style={{display:'flex',justifyContent:'center',alignItems:'center',margin:'15px'}}>
 
-      <main className="main-content" style={{ marginTop: showSidebar ? '0' : '-659px' }}>
+      
+      <main className="main-content" >
         {/* Loading State */}
         {loading && (
           <section className="profile-section">
@@ -1137,7 +1142,9 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                 <p><strong>PAN:</strong> {student.pan}</p>
               </div>
             </div>
+            
           </section>
+          
         )}
 
         {activeTab === 'enquiry' && (
@@ -1373,9 +1380,11 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                   <p style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Please contact your administrator.</p>
                 </div>
               ) : (
-                <div style={{ overflowX: 'auto' }}>
+                <div style={{overflowX: 'auto', }}>
+                 <div  style={{overflowX:'auto'}}>
                   <table style={{
                     width: '100%',
+                    
                     borderCollapse: 'collapse',
                     marginBottom: '2rem',
                     boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
@@ -1387,7 +1396,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                           border: '1px solid #ddd',
                           fontWeight: '600',
                           textAlign: 'center',
-                          minWidth: '120px'
+                          minWidth: '120px',
                         }}>Day / Period</th>
                         {periods.map((period, idx) => (
                           <th key={idx} style={{
@@ -1545,9 +1554,15 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                       })}
                     </tbody>
                   </table>
-
+                 </div>
                   {/* Teacher Legend */}
+                  <div style={{display:'flex',justifyContent:'center'}}>
                   <div style={{
+                    display:'flex',
+                    minWidth:'50%',
+                    flexDirection:'column',
+                    alignItems:'center',
+                    justifyContent:'center',
                     marginTop: '1.5rem',
                     padding: '1.5rem',
                     backgroundColor: '#f9fafb',
@@ -1562,14 +1577,16 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                     }}>
                       📚 Teachers & Subjects
                     </h3>
+                    
                     <div style={{
                       display: 'grid',
-                      gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+                      gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
                       gap: '1rem'
                     }}>
                       {Array.from(teacherSubjectMap.entries()).map(([teacher, subjects]) => (
                         <div key={teacher} style={{
                           padding: '0.75rem 1rem',
+                          
                           backgroundColor: 'white',
                           borderRadius: '6px',
                           border: '1px solid #d1d5db',
@@ -1578,6 +1595,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                           <div style={{
                             fontWeight: '600',
                             color: '#3b82f6',
+                            
                             marginBottom: '0.5rem'
                           }}>
                             👨‍🏫 {teacher}
@@ -1591,8 +1609,9 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                         </div>
                       ))}
                     </div>
+                    
                   </div>
-
+                  </div>
                   {/* Legend for special periods */}
                   <div style={{
                     marginTop: '1rem',
@@ -2082,8 +2101,8 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                         </div>
 
                         {/* Subject-wise Marks Table */}
+                        <div style={{overflowX:'auto',}}>
                         <table className="results-table" style={{
-                          width: '100%',
                           borderCollapse: 'collapse'
                         }}>
                           <thead>
@@ -2148,7 +2167,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                             ))}
                           </tbody>
                         </table>
-
+                        </div>
                         {/* Total Summary */}
                         <div style={{
                           marginTop: '1rem',
@@ -2308,6 +2327,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                 {feeData.monthlyFees && feeData.monthlyFees.length > 0 && (
                   <div style={{ marginTop: '2rem' }}>
                     <h3 style={{ marginBottom: '1rem' }}>Monthly Fee Details</h3>
+                    <div style={{overflowX:'auto'}}>                    
                     <table className="results-table" style={{ width: '100%' }}>
                       <thead>
                         <tr>
@@ -2339,6 +2359,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                         ))}
                       </tbody>
                     </table>
+                    </div>
                   </div>
                 )}
               </>
@@ -2918,6 +2939,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
           </section>
         )}
       </main>
+      </div>
     </div>
   );
 };

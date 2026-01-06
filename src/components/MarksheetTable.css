@@ -84,9 +84,9 @@
 
 .subject-header {
   text-align: left !important;
-  min-width: 180px;
+  /*min-width: 180px;
   position: sticky;
-  left: 0;
+  left: 0;*/
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   z-index: 2;
 }
@@ -149,8 +149,6 @@
   text-align: left !important;
   font-weight: 600;
   color: #1f2937;
-  position: sticky;
-  left: 0;
   background: white;
   z-index: 1;
   border-right: 2px solid #d1d5db !important;
