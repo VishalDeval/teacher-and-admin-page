@@ -1,6 +1,8 @@
 .promotion-management {
   padding: 20px;
-  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
 }
 
@@ -129,7 +131,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
-  white-space: nowrap;
+ 
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 

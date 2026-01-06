@@ -554,9 +554,7 @@
     grid-template-columns: 1fr;
   }
 
-  .session-card-footer {
-    flex-direction: column;
-  }
+  
 
   .btn-action {
     width: 100%;

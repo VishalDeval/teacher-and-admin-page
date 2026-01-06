@@ -102,6 +102,9 @@
 
 /* Broadcast Card */
 .broadcast-card {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -237,6 +240,7 @@
   font-weight: 600;
   font-size: 0.875rem;
   transition: all 0.2s ease;
+  
 }
 
 .edit-btn:hover {

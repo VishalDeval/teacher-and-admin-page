@@ -2706,6 +2706,7 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onLogout }) => {
       <div className="attendance-section">
         <div style={{ 
           marginBottom: '2rem',
+          width:'100%',
           padding: '1.5rem',
           backgroundColor: '#ffffff',
           borderRadius: '12px',
@@ -2723,8 +2724,9 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onLogout }) => {
 
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-          gap: '1.5rem'
+          gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+          gap: '1.5rem',
+          width:'100%',
         }}>
           {classTeacherClasses.map((cls) => (
             <div 
@@ -2736,7 +2738,8 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onLogout }) => {
                 boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
                 transition: 'all 0.3s ease',
                 cursor: 'pointer',
-                border: '2px solid transparent'
+                border: '2px solid transparent',
+                width:'100%'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)';

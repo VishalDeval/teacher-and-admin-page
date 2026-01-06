@@ -1,7 +1,11 @@
 .subject-management {
   padding: 24px;
-  max-width: 1400px;
   margin: 0 auto;
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  
+  flex-direction: column;
 }
 
 .subject-header {
@@ -9,7 +13,9 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 32px;
-  padding-bottom: 20px;
+  padding: 20px;
+  
+  border-radius: 10px;
   border-bottom: 2px solid #e9ecef;
 }
 
@@ -214,6 +220,7 @@
 
 .subjects-list {
   margin-top: 30px;
+  overflow-x: auto;
 }
 
 .subjects-list h3 {
@@ -233,12 +240,14 @@
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
+  overflow-x: auto;
+  
   border: 2px solid #e9ecef;
 }
 
 .subjects-table {
   width: 100%;
+  overflow-x: auto;
   border-collapse: collapse;
 }
 
@@ -287,6 +296,9 @@
 
 .subject-actions {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   gap: 8px;
 }
 
@@ -315,6 +327,7 @@
   cursor: pointer;
   font-size: 13px;
   font-weight: 500;
+  width: 100%!important;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2);
   display: inline-flex;
@@ -346,6 +359,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  width: 100%!important;
 }
 
 .btn-delete:hover {
@@ -616,10 +630,12 @@
 
   .subjects-table {
     min-width: 600px;
+    overflow-x: auto;
   }
 
   .subject-actions {
     flex-direction: column;
+    
   }
 
   .modal-content {

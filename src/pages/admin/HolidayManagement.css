@@ -1,6 +1,8 @@
 .holiday-management {
   padding: 2rem;
-  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
 }
 
@@ -140,7 +142,7 @@
 .month-group {
   background: white;
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -162,13 +164,17 @@
 .holiday-card {
   display: flex;
   gap: 1rem;
-  padding: 1.5rem;
+  padding: 5px;
   background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
   border: 2px solid #e5e7eb;
   border-radius: 12px;
   transition: all 0.2s;
 }
-
+@media (max-width: 768px) {
+  .holiday-card{
+    flex-direction: column;
+  }
+}
 .holiday-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
