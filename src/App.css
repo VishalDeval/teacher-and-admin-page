@@ -24,6 +24,7 @@
   --border-radius-sm: 8px;
   --border-radius-md: 12px;
   --border-radius-lg: 20px;
+  --nav-height: 64px;
 }
 
 * {

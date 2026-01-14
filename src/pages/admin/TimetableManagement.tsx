@@ -378,7 +378,7 @@ const TimetableManagement: React.FC = () => {
     <div className="timetable-management">
       <div className="timetable-header">
         <div>
-          <h1>📅 Timetable Management</h1>
+          <h1>Timetable Management</h1>
           <p>Create and manage class schedules with an intuitive visual interface</p>
         </div>
         <button 
@@ -386,7 +386,7 @@ const TimetableManagement: React.FC = () => {
           onClick={() => setShowSettingsModal(true)}
           title="Configure Period Duration"
         >
-          ⚙️ Period Settings
+          Period Settings
         </button>
       </div>
 
@@ -407,7 +407,7 @@ const TimetableManagement: React.FC = () => {
       {/* Class Selection */}
       <div className="class-selector-card">
         <label htmlFor="class-select">
-          <span className="label-icon">🏫</span>
+          <span className="label-icon"></span>
           Select Class to Manage Timetable
         </label>
         <select

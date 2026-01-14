@@ -115,10 +115,9 @@ const TeacherDetailView: React.FC<TeacherDetailViewProps> = ({ teacher, onClose,
         {/* Header */}
         <div className="student-detail-header">
           <div className="header-left">
-            <div className="student-avatar teacher-avatar">
-              {teacher.name.charAt(0).toUpperCase()}
-            </div>
+            
             <div className="header-info">
+              
               <h2>{teacher.name}</h2>
               <div className="header-meta">
                 <span className="status-badge" style={{ 

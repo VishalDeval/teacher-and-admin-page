@@ -136,7 +136,7 @@ const TeacherLogin: React.FC<TeacherLoginProps> = ({ onLogin }) => {
           <p>Teacher Credentials:</p>
           <p>Use your registered email and password</p>
           <div className="signup-section">
-            <p className="info-text">📝 New teachers should contact the admin office for registration</p>
+            <p className="info-text">New teachers should contact the admin office for registration</p>
           </div>
           <p className="admin-link">
             <a href="/admin/login">Admin Login</a>

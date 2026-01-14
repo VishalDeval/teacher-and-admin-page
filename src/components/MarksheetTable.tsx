@@ -96,7 +96,7 @@ const MarksheetTable: React.FC<MarksheetTableProps> = ({ studentResults, onDownl
           <p>PAN: {studentResults.studentPanNumber}</p>
         </div>
         <button className="download-btn" onClick={onDownload}>
-          📥 Download Marksheet
+           Download Marksheet
         </button>
       </div>
 

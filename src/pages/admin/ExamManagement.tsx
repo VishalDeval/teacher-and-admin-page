@@ -330,15 +330,15 @@ const ExamManagement: React.FC = () => {
     <div className="exam-management">
       <div className="exam-header">
         <div>
-          <h2>📝 Exam Type Management</h2>
+          <h2>Exam Type Management</h2>
           <p>Create exam types and assign them to classes</p>
         </div>
         <div className="header-buttons">
           <button className="add-exam-btn" onClick={() => handleOpenExamTypeModal()}>
-            ➕ Add Exam Type
+            Add Exam Type
           </button>
           <button className="assign-exam-btn" onClick={() => handleOpenAssignModal()}>
-            📋 Assign to Classes
+            Assign to Classes
           </button>
         </div>
       </div>
@@ -424,7 +424,7 @@ const ExamManagement: React.FC = () => {
                       {assignedClasses.length > 0 ? (
                         <div className="assigned-classes-info">
                           <p style={{ fontWeight: '600', marginBottom: '0.75rem', color: '#374151', fontSize: '0.9rem' }}>
-                            📚 Assigned to {assignedClasses.length} class{assignedClasses.length !== 1 ? 'es' : ''}:
+                            Assigned to {assignedClasses.length} class{assignedClasses.length !== 1 ? 'es' : ''}:
                           </p>
                           <div style={{ 
                             backgroundColor: '#f9fafb', 
@@ -457,7 +457,7 @@ const ExamManagement: React.FC = () => {
                                     <td style={{ padding: '0.5rem', textAlign: 'center', color: '#6b7280' }}>
                                       {ce.examDate ? (
                                         <span style={{ color: '#059669', fontWeight: '500' }}>
-                                          📅 {new Date(ce.examDate).toLocaleDateString('en-GB')}
+                                          {new Date(ce.examDate).toLocaleDateString('en-GB')}
                                         </span>
                                       ) : (
                                         <span style={{ color: '#dc2626', fontSize: '0.8rem' }}>
@@ -496,13 +496,13 @@ const ExamManagement: React.FC = () => {
                     </div>
                     <div className="exam-card-footer">
                       <button className="edit-btn" onClick={() => handleOpenExamTypeModal(examType)}>
-                        ✏️ Edit
+                        Edit
                       </button>
                       <button className="assign-btn" onClick={() => handleOpenAssignModal(examType.id)}>
-                        📋 Assign
+                        Assign
                       </button>
                       <button className="delete-btn" onClick={() => handleDeleteExamType(examType.id)}>
-                        🗑️ Delete
+                        Delete
                       </button>
                     </div>
                   </div>

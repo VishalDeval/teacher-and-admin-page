@@ -479,7 +479,7 @@ const GalleryManagement = () => {
                   )}
                   <div className="image-meta">
                     <span className="upload-date">
-                      📅 {
+                       {
                         (() => {
                           try {
                             if (!image.createdAt) return 'Uploaded: Date unavailable';
@@ -527,14 +527,14 @@ const GalleryManagement = () => {
                       className="edit-btn"
                       disabled={loading}
                     >
-                      ✏️ Edit
+                      Edit
                     </button>
                     <button
                       onClick={() => handleDelete(image.id)}
                       className="delete-btn"
                       disabled={loading}
                     >
-                      🗑️ Delete
+                      Delete
                     </button>
                   </div>
                 </div>

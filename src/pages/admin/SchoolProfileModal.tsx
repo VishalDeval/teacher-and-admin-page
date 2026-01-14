@@ -122,7 +122,7 @@ const SchoolProfileModal: React.FC<SchoolProfileModalProps> = ({ schoolId, onClo
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content school-profile-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>🏫 School Profile</h2>
+          <h2> School Profile</h2>
           <button className="close-btn" onClick={onClose}>✕</button>
         </div>
 

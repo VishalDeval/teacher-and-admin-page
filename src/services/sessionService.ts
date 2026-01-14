@@ -120,10 +120,10 @@ export class SessionService {
       const sessions = await this.getAllSessions();
       // console.log("All sessions fetched:", sessions);
       const active = sessions.find(s => s.active);
-      if (!active) console.warn("⚠️ No active session found in response");
+      if (!active) console.warn("No active session found in response");
       return active || null;
     } catch (error: any) {
-      console.error("🔥 getActiveSession failed:", error);
+      console.error("getActiveSession failed:", error);
       return null;
     }
   }

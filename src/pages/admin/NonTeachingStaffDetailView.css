@@ -7,7 +7,11 @@
 .nts-detail-modal .student-detail-header {
   border-bottom: 3px solid #f59e0b;
 }
-
+.header-meta{
+  gap: 10px;
+  display: flex;
+ 
+}
 .nts-detail-modal .tab.active {
   border-bottom-color: #f59e0b;
   color: #ea580c;
@@ -36,7 +40,10 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-
+.header-left{
+  display: flex;
+  width: 100%;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .nts-detail-modal .header-left {

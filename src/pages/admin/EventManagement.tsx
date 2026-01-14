@@ -248,7 +248,7 @@ const EventManagement: React.FC = () => {
                 
                 <div className="event-details">
                   <div className="event-detail">
-                    <span className="icon">📅</span>
+                    <span className="icon"></span>
                     <span>
                       {event.startDate ? new Date(event.startDate).toLocaleDateString() : 'No date set'}
                       {event.endDate && event.endDate !== event.startDate && 
@@ -259,7 +259,7 @@ const EventManagement: React.FC = () => {
                   
                   {event.sessionName && (
                     <div className="event-detail">
-                      <span className="icon">�</span>
+                      <span className="icon"></span>
                       <span>{event.sessionName}</span>
                     </div>
                   )}

@@ -415,7 +415,7 @@ const MarksUpload: React.FC<MarksUploadProps> = () => {
   return (
     <div className="marks-upload-container">
       <div className="marks-upload-header">
-        <h2>📝 Upload Student Marks</h2>
+        <h2>Upload Student Marks</h2>
         <p>Select class, exam, and subject to upload marks for students</p>
       </div>
 

@@ -149,7 +149,7 @@ const MarkAttendance: React.FC<MarkAttendanceProps> = ({ classId, className, sec
           </div>
         ) : error ? (
           <div className="attendance-error">
-            <p>⚠️ {error}</p>
+            <p>Error: {error}</p>
             <button onClick={fetchStudents} className="retry-btn">Retry</button>
           </div>
         ) : (

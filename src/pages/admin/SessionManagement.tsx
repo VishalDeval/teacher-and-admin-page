@@ -378,10 +378,10 @@ const SessionManagement: React.FC<SessionManagementProps> = ({ onSessionChange }
                     <div>
                       <h3>{session.name}</h3>
                       <span className={`status-badge ${status}`}>
-                        {status === 'active' && '✓ Active'}
-                        {status === 'upcoming' && '🔮 Upcoming'}
-                        {status === 'past' && '📜 Past'}
-                        {status === 'inactive' && '⏸️ Inactive'}
+                        {status === 'active' && 'Active'}
+                        {status === 'upcoming' && 'Upcoming'}
+                        {status === 'past' && 'Past'}
+                        {status === 'inactive' && 'Inactive'}
                       </span>
                     </div>
                   </div>

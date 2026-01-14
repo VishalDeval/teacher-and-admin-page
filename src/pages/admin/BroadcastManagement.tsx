@@ -146,7 +146,7 @@ const BroadcastManagement: React.FC = () => {
   return (
     <div className="broadcast-management">
       <div className="page-header">
-        <h2>📢 Broadcast Messages</h2>
+        <h2>Broadcast Messages</h2>
         <p>View and manage your sent broadcast messages</p>
       </div>
 
@@ -181,7 +181,7 @@ const BroadcastManagement: React.FC = () => {
                 </div>
                 <div className="broadcast-meta">
                   <span className="broadcast-date">
-                    📅 {formatDate(firstMessage.createdAt)}
+                    {formatDate(firstMessage.createdAt)}
                   </span>
                   <span className="recipient-type-badge">
                     {firstMessage.recipientType}
@@ -214,7 +214,7 @@ const BroadcastManagement: React.FC = () => {
                     className="edit-btn"
                     onClick={() => openEditModal(firstMessage)}
                   >
-                    ✏️ Edit
+                    Edit
                   </button>
                 )}
               </div>
@@ -224,7 +224,7 @@ const BroadcastManagement: React.FC = () => {
 
         {groupedMessages.size === 0 && (
           <div className="empty-state">
-            <div className="empty-icon">📭</div>
+            <div className="empty-icon"></div>
             <h3>No Broadcast Messages Yet</h3>
             <p>Your sent broadcast messages will appear here</p>
           </div>

@@ -221,7 +221,7 @@ const ClassTeacherPromotion: React.FC = () => {
   return (
     <div className="promotion-container">
       <div className="promotion-header">
-        <h2>🎓 Student Promotion Management</h2>
+        <h2>Student Promotion Management</h2>
         <p>Promote students to the next class for the upcoming session</p>
       </div>
 

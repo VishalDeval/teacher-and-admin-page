@@ -181,11 +181,11 @@ const HolidayManagement: React.FC = () => {
     <div className="holiday-management">
       <div className="holiday-header">
         <div>
-          <h1>📅 Holiday Management</h1>
+          <h1>Holiday Management</h1>
           <p>Manage school holidays and important dates</p>
         </div>
         <button className="btn-add" onClick={handleAddNew} disabled={saving}>
-          ➕ Add Holiday
+           Add Holiday
         </button>
       </div>
 

@@ -694,7 +694,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                           color: '#6366f1',
                           fontWeight: '500'
                         }}>
-                          👨‍🏫 Class Teacher: {classEntity.classTeacherName}
+                          Class Teacher: {classEntity.classTeacherName}
                         </p>
                       )}
                     </div>
@@ -721,7 +721,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                         }}
                         title="Assign roll numbers alphabetically by student name"
                       >
-                        🔢 Assign Roll Numbers A-Z
+                        Assign Roll Numbers A-Z
                       </button>
                     )}
                   </div>
@@ -1116,7 +1116,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                 transition: 'all 0.2s'
               }}
             >
-              📋 Pending Requests {!tcDataLoaded || tcLoading ? '(...)' : `(${tcRequests.length})`}
+              Pending Requests {!tcDataLoaded || tcLoading ? '(...)' : `(${tcRequests.length})`}
             </button>
             <button
               onClick={() => setTcView('processed')}
@@ -1367,7 +1367,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
       }}>
         <div>
           <h2 style={{ margin: 0, color: '#1f2937', fontSize: '1.5rem', fontWeight: '700' }}>
-            👨‍🏫 Teacher Queries
+             Teacher Queries
           </h2>
           <p style={{ margin: '0.25rem 0 0', color: '#6b7280', fontSize: '0.9rem' }}>
             Review and respond to teacher questions
@@ -1436,7 +1436,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                       alignItems: 'center',
                       gap: '0.25rem'
                     }}>
-                      👤 {query.teacherName || 'From Teacher'}
+                       {query.teacherName || 'From Teacher'}
                     </span>
                     <span style={{ color: '#d1d5db' }}>•</span>
                     <span style={{ 
@@ -1446,7 +1446,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                       alignItems: 'center',
                       gap: '0.25rem'
                     }}>
-                      📅 {query.createdAt ? new Date(query.createdAt).toLocaleString() : 'N/A'}
+                       {query.createdAt ? new Date(query.createdAt).toLocaleString() : 'N/A'}
                     </span>
                   </div>
                 </div>
@@ -1460,7 +1460,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                   whiteSpace: 'nowrap',
                   boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
                 }}>
-                  {query.status === 'OPEN' ? '⏳ Pending' : '✅ Answered'}
+                  {query.status === 'OPEN' ? 'Pending' : 'Answered'}
                 </span>
               </div>
               
@@ -1473,7 +1473,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                 border: '1px solid #f3f4f6'
               }}>
                 <p style={{ margin: 0, fontWeight: '600', fontSize: '0.9rem', color: '#6b7280', marginBottom: '0.5rem' }}>
-                  ❓ Teacher's Question:
+                  Teacher's Question:
                 </p>
                 <p style={{ margin: 0, fontSize: '0.95rem', color: '#374151', lineHeight: '1.7' }}>
                   {query.content}
@@ -1499,7 +1499,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                     justifyContent: 'space-between'
                   }}>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      ✅ Your Response:
+                      Your Response:
                     </span>
                     <button 
                       onClick={() => {
@@ -1530,7 +1530,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                         e.currentTarget.style.transform = 'scale(1)';
                       }}
                     >
-                      ✏️ Edit Response
+                      Edit Response
                     </button>
                   </p>
                   <p style={{ margin: '0 0 0.75rem', color: '#047857', lineHeight: '1.7', fontSize: '1rem' }}>
@@ -1538,7 +1538,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                   </p>
                   {query.respondedAt && (
                     <p style={{ margin: 0, fontSize: '0.85rem', color: '#059669' }}>
-                      📅 Responded on {new Date(query.respondedAt).toLocaleString()}
+                      Responded on {new Date(query.respondedAt).toLocaleString()}
                     </p>
                   )}
                 </div>
@@ -1560,7 +1560,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                     color: '#1f2937',
                     fontSize: '1rem'
                   }}>
-                    💬 Provide Your Response:
+                    Provide Your Response:
                   </label>
                   <textarea
                     value={queryResponseText[query.id] || ''}
@@ -1719,7 +1719,8 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                     display: 'flex', 
                     justifyContent: 'space-between', 
                     alignItems: 'center', 
-                    marginBottom: '0.5rem' 
+                    marginBottom: '0.5rem', 
+                    gap:'10px',
                   }}>
                     <p style={{ fontWeight: '500', margin: 0 }}>Your Response:</p>
                     <button 
@@ -1750,7 +1751,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                         e.currentTarget.style.transform = 'scale(1)';
                       }}
                     >
-                      ✏️ Edit
+                      Edit
                     </button>
                   </div>
                   <p style={{ color: '#374151', margin: '0 0 0.5rem' }}>{leave.adminResponse}</p>
@@ -1899,7 +1900,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
     <div className="admin-dashboard">
       <nav className="admin-navbar">
         <div className="nav-brand">
-          <div className="brand-icon">🏫</div>
+          <div className="brand-icon"></div>
           <h2>SLMS Admin</h2>
         </div>
         <div className="nav-actions">
@@ -1915,121 +1916,121 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
               className={`nav-item ${activeTab === 'overview' ? 'active' : ''}`}
               onClick={() => setActiveTab('overview')}
             >
-              📊 Overview
+              Overview
             </button>
             <button
               className={`nav-item ${activeTab === 'students' ? 'active' : ''}`}
               onClick={() => setActiveTab('students')}
             >
-              👥 Students
+              Students
             </button>
             <button
               className={`nav-item ${activeTab === 'staff' ? 'active' : ''}`}
               onClick={() => setActiveTab('staff')}
             >
-              👨‍🏫 Staff
+              Staff
             </button>
             <button
               className={`nav-item ${activeTab === 'registration' ? 'active' : ''}`}
               onClick={() => setActiveTab('registration')}
             >
-              ✏️ Registration
+              Registration
             </button>
             <button
               className={`nav-item ${activeTab === 'sessions' ? 'active' : ''}`}
               onClick={() => setActiveTab('sessions')}
             >
-              📅 Sessions
+              Sessions
             </button>
             <button
               className={`nav-item ${activeTab === 'classes' ? 'active' : ''}`}
               onClick={() => setActiveTab('classes')}
             >
-              📚 Classes
+              Classes
             </button>
             <button
               className={`nav-item ${activeTab === 'subjects' ? 'active' : ''}`}
               onClick={() => setActiveTab('subjects')}
             >
-              📖 Subjects
+              Subjects
             </button>
             <button
               className={`nav-item ${activeTab === 'fees' ? 'active' : ''}`}
               onClick={() => setActiveTab('fees')}
             >
-              💰 Fee Management
+              Fee Management
             </button>
             <button
               className={`nav-item ${activeTab === 'timetable' ? 'active' : ''}`}
               onClick={() => setActiveTab('timetable')}
             >
-              📅 Timetable
+              Timetable
             </button>
             <button
               className={`nav-item ${activeTab === 'exams' ? 'active' : ''}`}
               onClick={() => setActiveTab('exams')}
             >
-              📝 Exams
+            Exams
             </button>
             <button
               className={`nav-item ${activeTab === 'promotions' ? 'active' : ''}`}
               onClick={() => setActiveTab('promotions')}
             >
-              🎓 Promotions
+              Promotions
             </button>
             <button
               className={`nav-item ${activeTab === 'transfer-certificates' ? 'active' : ''}`}
               onClick={() => setActiveTab('transfer-certificates')}
             >
-              📋 Transfer Certificates
+          Transfer Certificates
             </button>
             <button
               className={`nav-item ${activeTab === 'events' ? 'active' : ''}`}
               onClick={() => setActiveTab('events')}
             >
-              🎉 Events
+              Events
             </button>
             <button
               className={`nav-item ${activeTab === 'teacher-queries' ? 'active' : ''}`}
               onClick={() => setActiveTab('teacher-queries')}
             >
-              ❓ Teacher Queries
+              Teacher Queries
             </button>
             <button
               className={`nav-item ${activeTab === 'staff-leaves' ? 'active' : ''}`}
               onClick={() => setActiveTab('staff-leaves')}
             >
-              📝 Staff Leaves
+              Staff Leaves
             </button>
             <button
               className={`nav-item ${activeTab === 'marks-upload' ? 'active' : ''}`}
               onClick={() => setActiveTab('marks-upload')}
             >
-              📊 Upload Marks
+              Upload Marks
             </button>
             <button
               className={`nav-item ${activeTab === 'messages' ? 'active' : ''}`}
               onClick={() => setActiveTab('messages')}
             >
-              � Messages
+              Messages
             </button>
             <button
               className={`nav-item ${activeTab === 'gallery' ? 'active' : ''}`}
               onClick={() => setActiveTab('gallery')}
             >
-              🖼️ Gallery
+              Gallery
             </button>
             <button
               className={`nav-item ${activeTab === 'holidays' ? 'active' : ''}`}
               onClick={() => setActiveTab('holidays')}
             >
-              📅 Holidays
+              Holidays
             </button>
             <button
               className={`nav-item ${activeTab === 'grade-management' ? 'active' : ''}`}
               onClick={() => setActiveTab('grade-management')}
             >
-              🎯 Grade Management
+              Grade Management
             </button>
           </nav>
         </aside>

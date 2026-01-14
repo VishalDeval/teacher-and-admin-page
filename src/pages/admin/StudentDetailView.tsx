@@ -302,7 +302,7 @@ const StudentDetailView: React.FC<StudentDetailViewProps> = ({ student, feeCatal
           <h3 className="section-title">Personal Information</h3>
           <div className="info-grid">
             <div className="info-item">
-              <label>Full Name: <span style={{color: 'red'}}>*</span></label>
+              <label>Full Name: <span className='astrick' style={{color: 'red',}}>*</span></label>
               {isEditing ? (
                 <input
                   type="text"
@@ -317,7 +317,7 @@ const StudentDetailView: React.FC<StudentDetailViewProps> = ({ student, feeCatal
             </div>
             
             <div className="info-item">
-              <label>Class: <span style={{color: 'red'}}>*</span></label>
+              <label>Class: <span className='astrick' style={{color: 'red'}}>*</span></label>
               {isEditing ? (
                 <input
                   type="text"
@@ -333,7 +333,7 @@ const StudentDetailView: React.FC<StudentDetailViewProps> = ({ student, feeCatal
             </div>
             
             <div className="info-item">
-              <label>Section: <span style={{color: 'red'}}>*</span></label>
+              <label>Section: <span className='astrick' style={{color: 'red'}}>*</span></label>
               {isEditing ? (
                 <input
                   type="text"

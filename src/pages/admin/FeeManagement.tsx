@@ -137,7 +137,7 @@ const FeeManagement: React.FC = () => {
   return (
     <div className="fee-management-container">
       <div className="fee-header">
-        <h2>💰 Fee Management</h2>
+        <h2>Fee Management</h2>
         <p>Manage student fee payments and view payment status</p>
       </div>
 
@@ -196,7 +196,7 @@ const FeeManagement: React.FC = () => {
         <div className="fee-details-panel">
           {!selectedStudent ? (
             <div className="empty-state">
-              <div className="empty-icon">👈</div>
+              <div className="empty-icon"></div>
               <h3>Select a Student</h3>
               <p>Choose a student from the list to view and manage their fees</p>
             </div>
@@ -207,12 +207,12 @@ const FeeManagement: React.FC = () => {
               <div className="student-fee-header">
                 <h3>{selectedStudent.name}</h3>
                 <div className="student-meta">
-                  <span>📋 PAN: {selectedStudent.panNumber}</span>
+                  <span>PAN: {selectedStudent.panNumber}</span>
                   {selectedStudent.className && (
-                    <span>📚 Class: {selectedStudent.className}</span>
+                    <span>Class: {selectedStudent.className}</span>
                   )}
                   {selectedStudent.sessionName && (
-                    <span>📅 Session: {selectedStudent.sessionName}</span>
+                    <span>Session: {selectedStudent.sessionName}</span>
                   )}
                 </div>
               </div>

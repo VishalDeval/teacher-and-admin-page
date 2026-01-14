@@ -262,7 +262,7 @@ const SubjectManagement: React.FC = () => {
               if (showBulkForm) setShowBulkForm(false);
             }}
           >
-            {showForm ? 'Cancel' : '+ Add Single Subject'}
+            {showForm ? 'Cancel' : 'Add Single Subject'}
           </button>
           <button 
             className="btn-success" 
@@ -271,7 +271,7 @@ const SubjectManagement: React.FC = () => {
               if (showForm) setShowForm(false);
             }}
           >
-            {showBulkForm ? 'Cancel' : '📚 Add Multiple Subjects'}
+            {showBulkForm ? 'Cancel' : 'Add Multiple Subjects'}
           </button>
         </div>
       </div>

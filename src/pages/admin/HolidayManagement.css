@@ -163,8 +163,9 @@
 /* Holiday Card */
 .holiday-card {
   display: flex;
+  padding: 10px 10px;
   gap: 1rem;
-  padding: 5px;
+
   background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
   border: 2px solid #e5e7eb;
   border-radius: 12px;
@@ -208,7 +209,12 @@
 
 .holiday-details {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   min-width: 0;
+  height: 100%;
 }
 
 .holiday-title {

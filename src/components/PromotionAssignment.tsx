@@ -213,7 +213,7 @@ const PromotionAssignment: React.FC<Props> = ({ classId, sessionId }) => {
   return (
     <div className="promotion-assignment-container">
       <div className="promotion-header">
-        <h2>📝 Assign Student Promotions</h2>
+        <h2>Assign Student Promotions</h2>
         <p>Select the target class for each student or mark them as graduated</p>
       </div>
 

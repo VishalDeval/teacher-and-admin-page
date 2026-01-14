@@ -191,7 +191,16 @@
   box-sizing: border-box;
   min-width: 0;
 }
+.astrick{
+  padding: 0!important;
+    background: rgba(255, 255, 255, 0)!important;
+    border-radius: 6px!important;
+    border: 0px solid #e5e7eb!important;
+    font-weight: 500!important;
+    font-size: 0.95rem!important;
+    width: 20%!important;
 
+}
 .info-item.full-width {
   grid-column: 1 / -1;
 }
@@ -203,11 +212,16 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 0.25rem;
-  display: block;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .info-item span {
   color: #1f2937;
+  
   padding: 0.75rem;
   background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
   border-radius: 10px;

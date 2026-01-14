@@ -365,9 +365,9 @@ const MessagesManagement: React.FC<MessagesManagementProps> = ({ students, teach
   return (
     <div className="messages-management">
       <div className="page-header">
-        <h2>📢 Broadcast Messages</h2>
+        <h2>Broadcast Messages</h2>
         <button className="compose-btn" onClick={() => setShowCompose(true)}>
-          ✏️ Compose New Message
+          Compose New Message
         </button>
       </div>
 
@@ -402,7 +402,7 @@ const MessagesManagement: React.FC<MessagesManagementProps> = ({ students, teach
                 </div>
                 <div className="broadcast-meta">
                   <span className="broadcast-date">
-                    📅 {formatDate(firstMessage.createdAt)}
+                    {formatDate(firstMessage.createdAt)}
                   </span>
                   <span className="recipient-type-badge">
                     {firstMessage.recipientType}
@@ -435,7 +435,7 @@ const MessagesManagement: React.FC<MessagesManagementProps> = ({ students, teach
                     className="edit-btn"
                     onClick={() => openEditModal(firstMessage)}
                   >
-                    ✏️ Edit
+                     Edit
                   </button>
                 )}
               </div>

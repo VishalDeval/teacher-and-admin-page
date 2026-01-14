@@ -12,9 +12,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
   margin-bottom: 32px;
   padding: 20px;
-  
+  width: 100%;
   border-radius: 10px;
   border-bottom: 2px solid #e9ecef;
 }
@@ -463,6 +464,7 @@
 /* Bulk Subject Form Styles */
 .header-buttons {
   display: flex;
+  
   gap: 12px;
 }
 

@@ -1,74 +1,116 @@
-/* TC Form Modal Styles - Centered Popup with Blur */
+/* ===============================
+   TC FORM MODAL – FINAL FIXED CSS
+   =============================== */
+
+/* OVERLAY */
 .tc-modal-overlay {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  position: fixed!important;
+  inset: 0!important;
+  background: rgba(15, 23, 42, 0.55)!important;
+  backdrop-filter: blur(8px)!important;
+  -webkit-backdrop-filter: blur(8px)!important;
+  isolation: isolate!important;
+  display: flex!important;
+  align-items: center!important;
+  justify-content: center!important;
+
+  z-index: 1000000!important;
+  padding: 20px!important;
+
+  /* IMPORTANT */
+  overflow: hidden;
+}
+
+/* MODAL CONTENT */
+.tc-modal-content {
+  position: relative;
+  background: #ffffff;
+  width: 100%;
+  max-width: 700px;
+
+  /* FIX FOR HIDDEN FORM */
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+
+  border-radius: 14px;
+  padding: 24px 32px 32px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+/* CLOSE BUTTON */
+.tc-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  font-size: 18px;
+  font-weight: bold;
+  background: #f1f5f9;
+  color: #1e293b;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999999 !important;
-  padding: 20px;
-  overflow-y: auto;
-  margin: 0 !important;
-  transform: none !important;
+
+  z-index: 2;
 }
 
-.tc-modal-content {
-  background-color: white;
-  border-radius: 12px;
-  padding: 35px 40px;
-  width: 100%;
-  max-width: 700px;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-  position: relative;
+.tc-modal-close:hover {
+  background: #e2e8f0;
 }
 
+/* TITLE */
 .tc-modal-title {
-  margin: 0 0 30px 0;
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+
   color: #2c3e50;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 600;
-  padding-bottom: 20px;
-  border-bottom: 3px solid #3498db;
   text-align: center;
+
+  border-bottom: 3px solid #3498db;
 }
 
+/* ERROR MESSAGE */
 .tc-error-message {
   background-color: #fee;
   color: #c33;
-  padding: 15px;
+  padding: 14px 16px;
   border-radius: 8px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   border-left: 5px solid #c33;
   font-size: 14px;
 }
 
+/* FORM GROUP */
 .tc-form-group {
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
+/* LABEL */
 .tc-form-label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
   color: #2c3e50;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .tc-required {
   color: #e74c3c;
-  font-size: 16px;
 }
 
+/* INPUTS */
 .tc-form-input,
 .tc-form-textarea {
   width: 100%;
@@ -77,16 +119,16 @@
   border-radius: 8px;
   font-size: 15px;
   font-family: inherit;
-  box-sizing: border-box;
   background-color: #fafafa;
+  box-sizing: border-box;
 }
 
 .tc-form-input:focus,
 .tc-form-textarea:focus {
   outline: none;
   border-color: #3498db;
-  background-color: white;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.12);
 }
 
 .tc-form-textarea {
@@ -95,18 +137,19 @@
   line-height: 1.5;
 }
 
+/* ACTION BUTTONS */
 .tc-form-actions {
   display: flex;
-  gap: 15px;
+  gap: 14px;
   justify-content: center;
-  margin-top: 35px;
-  padding-top: 25px;
+  margin-top: 30px;
+  padding-top: 20px;
   border-top: 2px solid #ecf0f1;
 }
 
 .tc-btn-cancel,
 .tc-btn-submit {
-  padding: 12px 35px;
+  padding: 12px 32px;
   border-radius: 8px;
   font-size: 15px;
   font-weight: 600;
@@ -114,27 +157,41 @@
   border: none;
 }
 
+/* CANCEL */
 .tc-btn-cancel {
   background-color: #95a5a6;
-  color: white;
+  color: #ffffff;
 }
 
 .tc-btn-cancel:hover:not(:disabled) {
   background-color: #7f8c8d;
 }
 
+/* SUBMIT */
 .tc-btn-submit {
   background-color: #3498db;
-  color: white;
+  color: #ffffff;
 }
 
 .tc-btn-submit:hover:not(:disabled) {
   background-color: #2980b9;
 }
 
+/* DISABLED */
 .tc-btn-cancel:disabled,
 .tc-btn-submit:disabled {
-  opacity: 0.5;
+  opacity: 0.55;
   cursor: not-allowed;
-  background-color: #bdc3c7;
+}
+
+/* MOBILE FIX */
+@media (max-width: 600px) {
+  .tc-modal-content {
+    padding: 20px;
+    max-height: calc(100vh - 100px);
+  }
+
+  .tc-modal-title {
+    font-size: 20px;
+  }
 }

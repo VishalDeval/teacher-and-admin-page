@@ -84,7 +84,7 @@ export class PeriodSettingsService {
       
       // Save to localStorage as fallback
       localStorage.setItem('periodSettings', JSON.stringify(settings));
-      console.log('✅ Period settings saved to localStorage');
+      console.log('Period settings saved to localStorage');
       return settings;
       
     } catch (error: any) {

@@ -269,7 +269,16 @@
   color: #92400e;
   border: 2px solid #fcd34d;
 }
-
+.header-info{
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+  margin-top: 15px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+ 
+}
 #previous-schooling-table .grade-d,
 #previous-schooling-table .grade-e,
 #previous-schooling-table .grade-f {

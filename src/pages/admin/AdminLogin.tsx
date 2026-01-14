@@ -75,7 +75,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
       <div className="admin-login-container">
         <div className="admin-login-header">
           <div className="admin-logo">
-            <div className="logo-icon">🏫</div>
+            <div className="logo-icon"></div>
             <h1>SLMS Admin</h1>
           </div>
           <p className="admin-subtitle">School Learning Management System</p>

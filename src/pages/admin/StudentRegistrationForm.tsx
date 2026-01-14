@@ -398,7 +398,7 @@ const StudentRegistrationForm: React.FC<StudentRegistrationFormProps> = ({ onReg
         {/* Personal Information Section */}
         <div className="form-section">
           <h3 className="section-title">
-            <span className="section-icon">👤</span>
+            <span className="section-icon"></span>
             Personal Information
           </h3>
           
@@ -568,7 +568,7 @@ const StudentRegistrationForm: React.FC<StudentRegistrationFormProps> = ({ onReg
         {/* Academic Information Section */}
         <div className="form-section">
           <h3 className="section-title">
-            <span className="section-icon">📚</span>
+            <span className="section-icon"></span>
             Academic Information
           </h3>
           
@@ -644,7 +644,7 @@ const StudentRegistrationForm: React.FC<StudentRegistrationFormProps> = ({ onReg
         {/* Contact Information Section */}
         <div className="form-section">
           <h3 className="section-title">
-            <span className="section-icon">📞</span>
+            <span className="section-icon"></span>
             Contact Information
           </h3>
           
@@ -726,7 +726,7 @@ const StudentRegistrationForm: React.FC<StudentRegistrationFormProps> = ({ onReg
         {/* Login Credentials Section */}
         <div className="form-section">
           <h3 className="section-title">
-            <span className="section-icon">🔐</span>
+            <span className="section-icon"></span>
             Login Credentials
           </h3>
           <p className="section-description">

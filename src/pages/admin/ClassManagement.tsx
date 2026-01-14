@@ -261,7 +261,7 @@ const ClassManagement: React.FC<ClassManagementProps> = ({ onClassChange }) => {
       {/* Header */}
       <div className="class-header">
         <div>
-          <h2>📚 Class Management</h2>
+          <h2>Class Management</h2>
           <p>Create and manage classes for different academic sessions</p>
         </div>
         <div className="header-actions">
@@ -270,7 +270,7 @@ const ClassManagement: React.FC<ClassManagementProps> = ({ onClassChange }) => {
             onClick={() => setShowCopyDialog(true)}
             disabled={loading || !selectedSession}
           >
-            📋 Copy Classes
+            Copy Classes
           </button>
           <button 
             className="btn-create-class" 
@@ -305,7 +305,7 @@ const ClassManagement: React.FC<ClassManagementProps> = ({ onClassChange }) => {
         <div className="modal-overlay" onClick={() => !copying && setShowCopyDialog(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h3>📋 Copy Classes to {getSessionName(selectedSession!)}</h3>
+              <h3>Copy Classes to {getSessionName(selectedSession!)}</h3>
               <button className="btn-close" onClick={() => setShowCopyDialog(false)} disabled={copying}>×</button>
             </div>
             <div className="modal-body">
@@ -501,13 +501,13 @@ const ClassManagement: React.FC<ClassManagementProps> = ({ onClassChange }) => {
           </div>
         ) : !selectedSession ? (
           <div className="empty-state">
-            <div className="empty-icon">📅</div>
+            <div className="empty-icon"></div>
             <h3>Select a Session</h3>
             <p>Please select an academic session to view and manage its classes</p>
           </div>
         ) : filteredClasses.length === 0 ? (
           <div className="empty-state">
-            <div className="empty-icon">📚</div>
+            <div className="empty-icon"></div>
             <h3>No Classes Found</h3>
             <p>No classes have been created for "{getSessionName(selectedSession)}" yet.</p>
             <button className="btn-create-class" onClick={handleCreateNew}>
@@ -551,7 +551,7 @@ const ClassManagement: React.FC<ClassManagementProps> = ({ onClassChange }) => {
                     onClick={() => handleEdit(classItem)}
                     disabled={submitting}
                   >
-                    ✏️ Edit
+                    Edit
                   </button>
                   <button 
                     className="btn-action btn-delete"
@@ -559,7 +559,7 @@ const ClassManagement: React.FC<ClassManagementProps> = ({ onClassChange }) => {
                     disabled={submitting || classItem.studentCount > 0}
                     title={classItem.studentCount > 0 ? 'Cannot delete class with students' : 'Delete class'}
                   >
-                    🗑️ Delete
+                    Delete
                   </button>
                 </div>
               </div>
