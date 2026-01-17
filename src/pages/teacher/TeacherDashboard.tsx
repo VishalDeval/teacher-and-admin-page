@@ -789,7 +789,7 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onLogout }) => {
             </div>
             <div className="profile-info" style={{ flex: 1 }}>
               <h2 style={{ 
-                margin: '0 0 1.5rem 0', 
+                margin: '0 0 0 0', 
                 fontSize: '2.5rem', 
                 fontWeight: '700',
                 textShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
@@ -797,13 +797,14 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onLogout }) => {
               }}>
                 {teacher.name}
               </h2>
-              <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '0' }}>
+              <div style={{ display: 'flex',flexDirection:'column' ,gap: '0.75rem', flexWrap: 'wrap', marginTop: '0' }}>
                 <span style={{
                   background: 'rgba(255, 255, 255, 0.25)',
                   padding: '0.5rem 1rem',
                   borderRadius: '20px',
                   fontSize: '0.95rem',
                   fontWeight: '500',
+                  textAlign:'center',
                   backdropFilter: 'blur(10px)',
                   border: '1px solid rgba(255, 255, 255, 0.3)'
                 }}>
@@ -814,6 +815,7 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onLogout }) => {
                     background: 'rgba(255, 255, 255, 0.25)',
                     padding: '0.5rem 1rem',
                     borderRadius: '20px',
+                    textAlign:'center',
                     fontSize: '0.95rem',
                     fontWeight: '500',
                     backdropFilter: 'blur(10px)',
@@ -825,6 +827,7 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onLogout }) => {
                 <span style={{
                   background: 'rgba(255, 255, 255, 0.25)',
                   padding: '0.5rem 1rem',
+                  textAlign:'center',
                   borderRadius: '20px',
                   fontSize: '0.95rem',
                   fontWeight: '500',
@@ -2001,7 +2004,7 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onLogout }) => {
                 cursor: 'pointer'
               }}
             >
-              {editingVideo ? '💾 Update Lecture' : '📤 Upload Lecture'}
+              {editingVideo ? 'Update Lecture' : 'Upload Lecture'}
             </button>
             <button
               onClick={() => {

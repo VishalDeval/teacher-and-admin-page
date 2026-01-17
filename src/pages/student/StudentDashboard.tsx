@@ -1892,6 +1892,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                         </div> */}
                         <div style={{fontSize: '1.1rem', fontWeight: '600', textAlign: 'center'}}>
                           {h.name}
+                          
                         </div>
                         <div style={{
                           fontSize: '0.85rem',

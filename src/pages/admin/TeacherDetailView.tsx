@@ -135,13 +135,13 @@ const TeacherDetailView: React.FC<TeacherDetailViewProps> = ({ teacher, onClose,
               </div>
             </div>
           </div>
-          <div className="header-right">
+          <div className="header-right" style={{display:'flex',justifyContent:'center',margin:'10px 5px'}}>
             {!isEditing ? (
               <>
-                <button className="btn-edit" onClick={() => setIsEditing(true)}>
+                <button className="btn-edit"  onClick={() => setIsEditing(true)}>
                   <span>✏️</span> Edit
                 </button>
-                <button className="btn-close" onClick={onClose}>✕</button>
+                <button className="btn-close" style={{ padding:'20px 20px',marginRight:'10px'}} onClick={onClose}>✕</button>
               </>
             ) : (
               <>
@@ -149,6 +149,7 @@ const TeacherDetailView: React.FC<TeacherDetailViewProps> = ({ teacher, onClose,
                   className="btn-save" 
                   onClick={handleSave}
                   disabled={isSaving}
+                  
                 >
                   {isSaving ? 'Saving...' : '💾 Save'}
                 </button>

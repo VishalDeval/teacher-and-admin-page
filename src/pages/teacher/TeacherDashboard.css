@@ -515,6 +515,7 @@
 .profile-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
   margin-bottom: 2rem;
 }
@@ -968,7 +969,7 @@
 /* Results Section */
 .results-section h3 {
   margin: 0 0 1.5rem 0;
-  color: #1e293b;
+  color: #ffffff;
 }
 
 .results-header {

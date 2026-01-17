@@ -139,10 +139,10 @@ const NonTeachingStaffDetailView: React.FC<NonTeachingStaffDetailViewProps> = ({
           <div className="header-right">
             {!isEditing ? (
               <>
-                <button className="btn-edit" onClick={() => setIsEditing(true)}>
+                <button className="btn-edit"  onClick={() => setIsEditing(true)}>
                   <span>✏️</span> Edit
                 </button>
-                <button className="btn-close" onClick={onClose}>✕</button>
+                <button className="btn-close"  onClick={onClose}>✕</button>
               </>
             ) : (
               <>

@@ -479,6 +479,8 @@
 
 .session-card-footer {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
   padding-top: 16px;
   border-top: 2px solid #e9ecef;
