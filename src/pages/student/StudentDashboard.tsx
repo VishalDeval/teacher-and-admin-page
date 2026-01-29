@@ -1839,7 +1839,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
               <div style={{ textAlign: 'center', padding: '2rem' }}>Loading holidays...</div>
             ) : holidays.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '2rem', color: '#6b7280' }}>
-                <p>📅 No holidays scheduled yet.</p>
+                <p>No holidays scheduled yet.</p>
                 <p style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Holiday calendar will be updated by administration.</p>
               </div>
             ) : (
@@ -1877,10 +1877,13 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                           fontWeight: '600'
                         }}>
                           {isSingleDay ? (
-                            startDate.getDate()
+                             <div>
+                              <div style={{fontSize:'25px'}}>{startDate.getDate()} {startDate.toLocaleDateString('en-US', {month: 'long', year: 'numeric'})} </div>
+                            </div>
+
                           ) : (
                             <div>
-                              <div>{startDate.getDate()} {startDate.toLocaleDateString('en-US', {month: 'long', year: 'numeric'})} - {endDate.getDate()} {endDate.toLocaleDateString('en-US', {month: 'long', year: 'numeric'})}</div>
+                              <div style={{fontSize:'25px'}}>{startDate.getDate()} {startDate.toLocaleDateString('en-US', {month: 'long', year: 'numeric'})} - {endDate.getDate()} {endDate.toLocaleDateString('en-US', {month: 'long', year: 'numeric'})}</div>
                               <div style={{ fontSize: '0.7em', opacity: 0.9, marginTop: '0.25rem' }}>
                                 ({daysDiff + 1} days)
                               </div>

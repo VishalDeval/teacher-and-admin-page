@@ -46,7 +46,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   position: relative;
-  overflow: visible; /* Allow dropdowns to extend outside */
+  
 }
 
 /* Main Table */
@@ -58,7 +58,7 @@
   background: #ffffff;
   border: 2px solid #e5e7eb;
   border-radius: 12px;
-  overflow: visible;
+  overflow: auto;
   position: relative;
 }
 

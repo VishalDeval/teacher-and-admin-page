@@ -86,7 +86,7 @@ const PreviousSchoolingTable: React.FC<PreviousSchoolingTableProps> = ({ records
                       </div>
                     </details>
                   ) : (
-                    <span className="no-exams">-</span>
+                    <span className="no-exam">-</span>
                   )}
                 </td>
               </tr>

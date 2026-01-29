@@ -10,6 +10,7 @@
   align-items: center;
   margin-bottom: 2rem;
   padding: 1.5rem;
+  gap:20px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -65,6 +66,18 @@
   gap: 0.5rem;
 }
 
+.assign-exam-btn{
+  padding: 0.875rem 1.75rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
 .filter-group label {
   font-weight: 600;
   color: #374151;
@@ -132,7 +145,7 @@
 .no-exams {
   text-align: center;
   padding: 4rem 2rem;
-  background: white;
+  background: rgba(255, 255, 255, 0);
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
@@ -280,10 +293,19 @@
 
 .delete-btn:hover {
   background: #dc2626;
+  color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
-
+.assign-btn{
+  color: black;
+}
+.assign-btn:hover{
+  background:rgb(0, 0, 0) ;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
 /* Modal Styles */
 .modal-overlay {
   position: fixed;

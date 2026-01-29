@@ -315,7 +315,7 @@ const HolidayManagement: React.FC = () => {
         <div className="modal-overlay" onClick={() => setShowModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h2>{editingHoliday ? '✏️ Edit Holiday' : '➕ Add Holiday'}</h2>
+              <h2>{editingHoliday ? 'Edit Holiday' : 'Add Holiday'}</h2>
               <button className="close-btn" onClick={() => setShowModal(false)}>✕</button>
             </div>
 

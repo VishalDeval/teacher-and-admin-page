@@ -117,7 +117,7 @@
 .arrow-icon {
   font-size: 32px;
   color: #3498db;
-  margin-bottom: 10px;
+  
   font-weight: bold;
 }
 
@@ -529,6 +529,7 @@
   .arrow-icon {
     transform: rotate(90deg);
     margin: 0;
+    visibility: hidden;
   }
 
   .summary-cards {

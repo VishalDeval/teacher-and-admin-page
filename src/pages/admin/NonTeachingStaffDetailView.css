@@ -16,7 +16,12 @@
   border-bottom-color: #f59e0b;
   color: #ea580c;
 }
-
+.tab{
+  background-color: #667EEA;
+  padding: 10px 10px;
+  border-radius:10px;
+  color: white;
+}
 .nts-detail-modal .btn-edit {
   background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
 }
@@ -42,7 +47,12 @@
 }
 .header-left{
   display: flex;
+  justify-content: start;
+  padding: 0px 20px;
   width: 100%;
+}
+.header-info{
+  align-items: start;
 }
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -56,4 +66,7 @@
     width: 100%;
     justify-content: flex-end;
   }
+}
+.header-right{
+  align-items: end;
 }

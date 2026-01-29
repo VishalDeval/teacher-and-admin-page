@@ -293,6 +293,7 @@
 
 .calendar-table {
   width: 80%;
+  table-layout: fixed; 
   border-collapse: separate;
   border-spacing: 8px;
   justify-self: center;
@@ -313,6 +314,10 @@
   border-radius: 10px;
   padding: 12px 0;
   min-width: 20px;
+}
+.calendar-table thead th,
+.calendar-table tbody td {
+  width: calc(100% / 7); /* 7 days */
 }
 
 .calendar-table tbody td.present { background-color: #e6f9ed; border: 1px solid #b9e8c7; }
@@ -768,6 +773,7 @@
 
 .previous-schools-section {
   border-top-color: #27ae60;
+  width: 100%;
 }
 
 .profile-section:hover, 

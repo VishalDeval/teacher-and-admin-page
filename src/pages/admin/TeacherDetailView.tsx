@@ -113,7 +113,7 @@ const TeacherDetailView: React.FC<TeacherDetailViewProps> = ({ teacher, onClose,
     <div className="student-detail-overlay">
       <div className="student-detail-modal teacher-detail-modal">
         {/* Header */}
-        <div className="student-detail-header">
+        <div className="student-detail-header" style={{display:'flex',justifyContent:'space-between'}}>
           <div className="header-left">
             
             <div className="header-info">
@@ -135,11 +135,11 @@ const TeacherDetailView: React.FC<TeacherDetailViewProps> = ({ teacher, onClose,
               </div>
             </div>
           </div>
-          <div className="header-right" style={{display:'flex',justifyContent:'center',margin:'10px 5px'}}>
+          <div className="header-right" style={{display:'flex',justifyContent:'flex-end',flexDirection:'column-reverse',width:'20%',margin:'10px 5px'}}>
             {!isEditing ? (
               <>
-                <button className="btn-edit"  onClick={() => setIsEditing(true)}>
-                  <span>✏️</span> Edit
+                <button className="btn-edit" style={{width:'40%'}}  onClick={() => setIsEditing(true)}>
+                  <span></span> Edit
                 </button>
                 <button className="btn-close" style={{ padding:'20px 20px',marginRight:'10px'}} onClick={onClose}>✕</button>
               </>

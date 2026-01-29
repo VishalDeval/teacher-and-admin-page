@@ -797,7 +797,7 @@ const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onLogout }) => {
               }}>
                 {teacher.name}
               </h2>
-              <div style={{ display: 'flex',flexDirection:'column' ,gap: '0.75rem', flexWrap: 'wrap', marginTop: '0' }}>
+              <div style={{ display: 'flex' ,gap: '0.75rem', flexWrap: 'wrap', marginTop: '0' }}>
                 <span style={{
                   background: 'rgba(255, 255, 255, 0.25)',
                   padding: '0.5rem 1rem',

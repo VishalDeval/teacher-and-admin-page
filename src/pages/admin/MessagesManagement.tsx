@@ -516,7 +516,7 @@ const MessagesManagement: React.FC<MessagesManagementProps> = ({ students, teach
         <div className="modal-overlay" onClick={() => setShowCompose(false)}>
           <div className="compose-modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h3>✏️ Compose New Message</h3>
+              <h3>Compose New Message</h3>
               <button className="close-btn" onClick={() => setShowCompose(false)}>×</button>
             </div>
 
@@ -569,19 +569,19 @@ const MessagesManagement: React.FC<MessagesManagementProps> = ({ students, teach
                     className={selectedRecipientType === 'STUDENT' ? 'active' : ''}
                     onClick={() => setSelectedRecipientType('STUDENT')}
                   >
-                    👨‍🎓 Students
+                     Students
                   </button>
                   <button
                     className={selectedRecipientType === 'TEACHER' ? 'active' : ''}
                     onClick={() => setSelectedRecipientType('TEACHER')}
                   >
-                    👨‍🏫 Teachers
+                     Teachers
                   </button>
                   <button
                     className={selectedRecipientType === 'BOTH' ? 'active' : ''}
                     onClick={() => setSelectedRecipientType('BOTH')}
                   >
-                    👥 Both
+                   Both
                   </button>
                 </div>
               </div>
@@ -678,7 +678,7 @@ const MessagesManagement: React.FC<MessagesManagementProps> = ({ students, teach
                 onClick={handleBroadcast}
                 disabled={broadcasting}
               >
-                {broadcasting ? 'Sending...' : '📤 Send Message'}
+                {broadcasting ? 'Sending...' : 'Send Message'}
               </button>
             </div>
           </div>

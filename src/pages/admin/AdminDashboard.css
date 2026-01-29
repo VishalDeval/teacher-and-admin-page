@@ -589,7 +589,10 @@ body {
   color: #667eea !important;
   font-weight: 600;
 }
-
+.teacher-queries-section{
+  width: 100%;
+  
+}
 .staff-classes {
   margin: 12px 0px;
   padding: 8px 12px;

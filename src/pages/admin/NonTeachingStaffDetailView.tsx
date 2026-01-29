@@ -118,7 +118,7 @@ const NonTeachingStaffDetailView: React.FC<NonTeachingStaffDetailViewProps> = ({
             <div className="student-avatar nts-avatar">
               {staff.name.charAt(0).toUpperCase()}
             </div>
-            <div className="header-info">
+            <div className="header-info" >
               <h2>{staff.name}</h2>
               <div className="header-meta">
                 <span className="status-badge" style={{ 
@@ -140,7 +140,7 @@ const NonTeachingStaffDetailView: React.FC<NonTeachingStaffDetailViewProps> = ({
             {!isEditing ? (
               <>
                 <button className="btn-edit"  onClick={() => setIsEditing(true)}>
-                  <span>✏️</span> Edit
+                  <span></span> Edit
                 </button>
                 <button className="btn-close"  onClick={onClose}>✕</button>
               </>

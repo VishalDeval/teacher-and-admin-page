@@ -402,7 +402,7 @@ const ExamManagement: React.FC = () => {
         <>
           {filteredExamTypes.length === 0 ? (
             <div className="no-exams">
-              <div className="no-exams-icon">📋</div>
+              <div className="no-exams-icon"></div>
               <h3>No Exam Types Found</h3>
               <p>Click "Add Exam Type" to create one.</p>
             </div>

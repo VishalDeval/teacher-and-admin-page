@@ -534,7 +534,7 @@
 }
 
 .profile-info {
-  flex: 1;
+  flex-direction: column;
   gap: 20px;
   display: flex;
   align-items: center;
@@ -543,7 +543,7 @@
 
 .profile-info h2 {
   margin: 0 0 0px 0;
-  color: #1e293b;
+  color: #ffffff;
   font-size: 2rem;
   font-weight: 700;
 }
