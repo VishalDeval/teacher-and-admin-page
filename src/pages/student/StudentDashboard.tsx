@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import './StudentDashboard.css';
 import './TCForm.css';
 import StudentService from '../../services/studentService';
@@ -138,17 +139,35 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
   const [tcError, setTcError] = useState<string | null>(null);
   const [tcSuccess, setTcSuccess] = useState<string | null>(null);
 
-  useEffect(() => {
-  if (showTCForm) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
+  // Memoize the pending request check to prevent flickering
+  const hasPendingTCRequest = useMemo(() => {
+    return tcRequests.some(req =>
+      req.status === 'PENDING' ||
+      req.status === 'FORWARDED_TO_TEACHER'
+    );
+  }, [tcRequests]);
 
-  return () => {
-    document.body.style.overflow = "";
-  };
-}, [showTCForm]);
+  // Lock body scroll when drawer is open
+  useEffect(() => {
+    if (showTCForm) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showTCForm]);
+
+  // Clear TC messages and close form when leaving TC tab
+  useEffect(() => {
+    if (activeTab !== 'tc') {
+      setTcError(null);
+      setTcSuccess(null);
+      setShowTCForm(false);
+    }
+  }, [activeTab]);
 
 
   // Load student data, timetable, and events from API
@@ -352,41 +371,27 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
 
   const fetchGalleryImages = async () => {
     try {
-      // Fetch gallery images from all sessions the student was enrolled in
-      // First, get all previous schooling records to know which sessions the student was in
-      const records = await PreviousSchoolingService.getMyPreviousSchoolingRecords();
-      const sessionIds = records.map(record => record.sessionId);
+      console.log('Fetching gallery images...');
       
-      // Also include current session if available
-      if (student?.sessionId && !sessionIds.includes(student.sessionId)) {
-        sessionIds.push(student.sessionId);
+      // Simplified: Just fetch all gallery images without session filtering
+      const images = await galleryService.getAllImages();
+      console.log('Fetched gallery images:', images);
+      
+      if (images && images.length > 0) {
+        setGallery(images.map(img => ({
+          id: img.id.toString(),
+          title: img.title || 'Gallery Image',
+          imageUrl: img.imageUrl,
+          description: img.description,
+          createdAt: img.createdAt
+        })));
+        console.log('Gallery state updated with', images.length, 'images');
+      } else {
+        console.log('No gallery images found');
+        setGallery([]);
       }
-      
-      // Fetch gallery images for all these sessions
-      const allImages: any[] = [];
-      for (const sessionId of sessionIds) {
-        try {
-          const images = await galleryService.getAllImages(sessionId);
-          allImages.push(...images);
-        } catch (err) {
-          console.warn(`No gallery images for session ${sessionId}:`, err);
-        }
-      }
-      
-      // Remove duplicates by ID
-      const uniqueImages = Array.from(
-        new Map(allImages.map(img => [img.id, img])).values()
-      );
-      
-      setGallery(uniqueImages.map(img => ({
-        id: img.id.toString(),
-        title: img.title || 'Gallery Image',
-        imageUrl: img.imageUrl,
-        description: img.description,
-        createdAt: img.createdAt
-      })));
     } catch (err) {
-      console.warn('Error fetching gallery images:', err);
+      console.error('Error fetching gallery images:', err);
       setGallery([]);
     }
   };
@@ -443,16 +448,27 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
 
   // Fetch Transfer Certificate requests
   useEffect(() => {
+    let isMounted = true;
+    
     const fetchTCRequests = async () => {
       try {
         const requests = await TransferCertificateService.getMyTransferCertificateRequests();
-        setTcRequests(requests || []);
+        if (isMounted) {
+          setTcRequests(requests || []);
+        }
       } catch (err) {
         console.warn('No TC requests available:', err);
-        setTcRequests([]);
+        if (isMounted) {
+          setTcRequests([]);
+        }
       }
     };
+    
     fetchTCRequests();
+    
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   // Handle TC form submission
@@ -485,8 +501,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
       setShowTCForm(false);
       setTcSuccess('Transfer Certificate request submitted successfully!');
 
-      // Clear success message after 5 seconds
-      setTimeout(() => setTcSuccess(null), 5000);
+      // Clear success message after 5 seconds - no cleanup needed as it's within the async flow
 
     } catch (err: any) {
       setTcError(err.message || 'Failed to submit TC request');
@@ -2720,161 +2735,184 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onLogout }) => {
                 <li>Once submitted, you can track the status of your request below.</li>
               </ul>
               {/* Check if there's already a pending or processing request */}
-              {(() => {
-                const hasPendingRequest = tcRequests.some(req =>
-                  req.status === 'PENDING' ||
-                  req.status === 'FORWARDED_TO_TEACHER'
-                );
-
-                return hasPendingRequest ? (
-                  <div style={{
-                    padding: '12px 16px',
-                    backgroundColor: '#fff3cd',
-                    color: '#856404',
-                    borderRadius: '6px',
-                    marginTop: '16px',
-                    border: '1px solid #ffeeba'
-                  }}>
-                    You already have a pending transfer certificate request. Please wait for it to be processed.
-                  </div>
-                ) : (
-                  <button
-                    className="tc-btn"
-                    onClick={() => setShowTCForm(true)}
-                    disabled={tcLoading}
-                  >
-                    {tcLoading ? 'Processing...' : 'Request Transfer Certificate'}
-                  </button>
-                );
-              })()}
+              {hasPendingTCRequest ? (
+                <div style={{
+                  padding: '12px 16px',
+                  backgroundColor: '#fff3cd',
+                  color: '#856404',
+                  borderRadius: '6px',
+                  marginTop: '16px',
+                  border: '1px solid #ffeeba'
+                }}>
+                  You already have a pending transfer certificate request. Please wait for it to be processed.
+                </div>
+              ) : (
+                <button
+                  className="tc-btn"
+                  onClick={() => setShowTCForm(true)}
+                  disabled={tcLoading}
+                >
+                  {tcLoading ? 'Processing...' : 'Request Transfer Certificate'}
+                </button>
+              )}
             </div>
 
-            {/* TC Request Form Modal */}
-            
- {showTCForm && (
-  <div
-    className="tc-modal-overlay"
-    onClick={(e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (e.target === e.currentTarget) {
-        setShowTCForm(false);
-        setTcError(null);
-      }
-    }}
-  >
-    <div
-      className="tc-modal-content"
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-      }}
-    >
-      {/* CLOSE BUTTON */}
-      <button
-        type="button"
-        className="tc-modal-close"
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          setShowTCForm(false);
-          setTcError(null);
-        }}
-      >
-        ✕
-      </button>
+            {/* TC Request Form - Right Slide-in Drawer */}
+            {showTCForm && createPortal(
+              <>
+                {/* Backdrop Overlay */}
+                <div
+                  className="tc-drawer-overlay"
+                  onClick={() => {
+                    setShowTCForm(false);
+                    setTcError(null);
+                  }}
+                />
+                
+                {/* Drawer Container */}
+                <div className="tc-drawer">
+                  {/* Drawer Header */}
+                  <div className="tc-drawer-header">
+                    <div>
+                      <h3 className="tc-drawer-title">Transfer Certificate Request</h3>
+                      <p className="tc-drawer-subtitle">Please fill out the form below to request your transfer certificate</p>
+                    </div>
+                    <button
+                      type="button"
+                      className="tc-drawer-close"
+                      onClick={() => {
+                        setShowTCForm(false);
+                        setTcError(null);
+                      }}
+                      aria-label="Close drawer"
+                    >
+                      ×
+                    </button>
+                  </div>
 
-      {/* TITLE */}
-      <h2 className="tc-modal-title">Transfer Certificate Request</h2>
+                  {/* Error Message */}
+                  {tcError && (
+                    <div className="tc-error-message">
+                      <span>{tcError}</span>
+                    </div>
+                  )}
 
-      {/* ERROR */}
-      {tcError && <div className="tc-error-message">{tcError}</div>}
+                  {/* Form Section */}
+                  <form
+                    className="tc-form"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      handleSubmitTCRequest();
+                    }}
+                  >
+                    <div className="tc-form-container">
+                      {/* Reason for Transfer */}
+                      <div className="tc-form-group">
+                        <label className="tc-form-label" htmlFor="tc-reason">
+                          Reason for Transfer <span className="tc-required">*</span>
+                        </label>
+                        <textarea
+                          id="tc-reason"
+                          className="tc-form-textarea"
+                          value={tcFormData.reason}
+                          onChange={(e) => handleTCFormChange("reason", e.target.value)}
+                          placeholder="Please explain your reason for requesting a transfer certificate..."
+                          rows={4}
+                          required
+                        />
+                        <span className="tc-field-hint">Provide a clear and detailed reason</span>
+                      </div>
 
-      {/* FORM */}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmitTCRequest();
-        }}
-      >
-        <div className="tc-form-group">
-          <label className="tc-form-label">
-            Reason for Transfer <span className="tc-required">*</span>
-          </label>
-          <textarea
-            className="tc-form-textarea"
-            value={tcFormData.reason}
-            onChange={(e) =>
-              handleTCFormChange("reason", e.target.value)
-            }
-            rows={4}
-            required
-          />
-        </div>
+                      {/* Expected Transfer Date */}
+                      <div className="tc-form-group">
+                        <label className="tc-form-label" htmlFor="tc-date">
+                          Expected Transfer Date
+                        </label>
+                        <div className="tc-input-wrapper">
+                          <input
+                            id="tc-date"
+                            type="date"
+                            className="tc-form-input"
+                            value={tcFormData.transferDate}
+                            onChange={(e) => handleTCFormChange("transferDate", e.target.value)}
+                          />
+                        </div>
+                        <span className="tc-field-hint">When do you plan to transfer?</span>
+                      </div>
 
-        <div className="tc-form-group">
-          <label className="tc-form-label">Expected Transfer Date</label>
-          <input
-            type="date"
-            className="tc-form-input"
-            value={tcFormData.transferDate}
-            onChange={(e) =>
-              handleTCFormChange("transferDate", e.target.value)
-            }
-          />
-        </div>
+                      {/* New School Details Section */}
+                      <div className="tc-section-divider">
+                        <span className="tc-section-title">New School Details (Optional)</span>
+                      </div>
 
-        <div className="tc-form-group">
-          <label className="tc-form-label">New School Name</label>
-          <input
-            type="text"
-            className="tc-form-input"
-            value={tcFormData.newSchoolName}
-            onChange={(e) =>
-              handleTCFormChange("newSchoolName", e.target.value)
-            }
-            placeholder="Enter new school name"
-          />
-        </div>
+                      {/* New School Name */}
+                      <div className="tc-form-group">
+                        <label className="tc-form-label" htmlFor="tc-school-name">
+                          New School Name
+                        </label>
+                        <div className="tc-input-wrapper">
+                          <input
+                            id="tc-school-name"
+                            type="text"
+                            className="tc-form-input"
+                            value={tcFormData.newSchoolName}
+                            onChange={(e) => handleTCFormChange("newSchoolName", e.target.value)}
+                            placeholder="Enter the name of your new school"
+                          />
+                        </div>
+                      </div>
 
-        <div className="tc-form-group">
-          <label className="tc-form-label">New School Address</label>
-          <textarea
-            className="tc-form-textarea"
-            value={tcFormData.newSchoolAddress}
-            onChange={(e) =>
-              handleTCFormChange("newSchoolAddress", e.target.value)
-            }
-            rows={3}
-          />
-        </div>
+                      {/* New School Address */}
+                      <div className="tc-form-group">
+                        <label className="tc-form-label" htmlFor="tc-school-address">
+                          New School Address
+                        </label>
+                        <textarea
+                          id="tc-school-address"
+                          className="tc-form-textarea"
+                          value={tcFormData.newSchoolAddress}
+                          onChange={(e) => handleTCFormChange("newSchoolAddress", e.target.value)}
+                          placeholder="Enter the complete address of your new school"
+                          rows={3}
+                        />
+                      </div>
+                    </div>
 
-        <div className="tc-form-actions">
-          <button
-            type="button"
-            className="tc-btn-cancel"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setShowTCForm(false);
-              setTcError(null);
-            }}
-          >
-            Cancel
-          </button>
-
-          <button
-            type="submit"
-            className="tc-btn-submit"
-            disabled={tcLoading || !tcFormData.reason}
-          >
-            {tcLoading ? "Submitting..." : "Submit Request"}
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-)}
+                    {/* Action Buttons */}
+                    <div className="tc-form-actions">
+                      <button
+                        type="button"
+                        className="tc-btn-cancel"
+                        onClick={() => {
+                          setShowTCForm(false);
+                          setTcError(null);
+                        }}
+                        disabled={tcLoading}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="submit"
+                        className="tc-btn-submit"
+                        disabled={tcLoading || !tcFormData.reason}
+                      >
+                        {tcLoading ? (
+                          <>
+                            <span className="tc-btn-spinner"></span>
+                            Submitting...
+                          </>
+                        ) : (
+                          <>
+                            Submit Request
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </>,
+              document.body
+            )}
 
 
 
