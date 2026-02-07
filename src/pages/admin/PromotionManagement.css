@@ -369,7 +369,7 @@
 
 .status-promoted {
   background: #d4edda;
-  color: #155724;
+  color: #155724!important;
 }
 
 .status-detained {

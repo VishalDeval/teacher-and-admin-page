@@ -316,13 +316,13 @@ const PromotionManagement: React.FC = () => {
                     </td>
                     <td>
                       {promotion.isGraduated ? (
-                        <span className="promotion-badge graduated">🎓 Graduated</span>
+                        <span className="promotion-badge graduated"> Graduated</span>
                       ) : promotion.toClassName ? (
                         <span className="promotion-badge promoted">
                           {promotion.toClassName}
                         </span>
                       ) : (
-                        <span className="promotion-badge detained">⏸️ Detained</span>
+                        <span className="promotion-badge detained"> Detained</span>
                       )}
                     </td>
                     <td>

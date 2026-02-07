@@ -403,8 +403,8 @@ const ExamManagement: React.FC = () => {
           {filteredExamTypes.length === 0 ? (
             <div className="no-exams">
               <div className="no-exams-icon"></div>
-              <h3>No Exam Types Found</h3>
-              <p>Click "Add Exam Type" to create one.</p>
+              <h3 style={{color:"white" ,fontWeight:"bolder"}}>No Exam Types Found</h3>
+              <p style={{color:'whitesmoke' ,fontSize:"13px"}}>Click "Add Exam Type" to create one.</p>
             </div>
           ) : (
             <div className="exams-grid">

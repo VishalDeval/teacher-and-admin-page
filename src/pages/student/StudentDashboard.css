@@ -63,6 +63,7 @@
 .header-right {
   width: 100%;
   display: flex;
+  justify-content: end;
   align-items: center;
   gap: 20px;
 }
@@ -166,7 +167,7 @@
 
 .notifications-dropdown {
   position: absolute;
-  top: 57px;
+  top: 17px;
   left: -40px;
   width: 320px;
   background-color: white;

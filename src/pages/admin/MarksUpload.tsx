@@ -515,7 +515,7 @@ const MarksUpload: React.FC<MarksUploadProps> = () => {
                   className="btn-reset"
                   disabled={loading}
                 >
-                  🔄 Reset All
+                  Reset All
                 </button>
               </div>
             </div>
@@ -527,7 +527,7 @@ const MarksUpload: React.FC<MarksUploadProps> = () => {
               </div>
             ) : students.length === 0 ? (
               <div className="no-data">
-                <p>📋 No students found in this class</p>
+                <p>No students found in this class</p>
               </div>
             ) : (
               <div className="table-responsive">
@@ -612,7 +612,7 @@ const MarksUpload: React.FC<MarksUploadProps> = () => {
                 </>
               ) : (
                 <>
-                  💾 Upload Marks
+                  Upload Marks
                 </>
               )}
             </button>
